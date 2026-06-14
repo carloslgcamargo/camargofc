@@ -682,6 +682,30 @@
     padding: 2px 8px; margin-bottom: 0.5rem;
     text-transform: uppercase;
   }
+  .agenda-badge-encerrado {
+    display: inline-block;
+    background: #1a3a1a; color: #2ecc71;
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    padding: 2px 8px; margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  .agenda-placar-final {
+    text-align: center; margin: 0.75rem 0 0.25rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px; letter-spacing: 3px; color: var(--preto);
+    line-height: 1;
+  }
+  .agenda-placar-label {
+    text-align: center; font-size: 10px; color: #999;
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .agenda-gols {
+    border-top: 1px solid #eee; margin-top: 0.75rem;
+    padding-top: 0.6rem; font-size: 11px; color: #666;
+    display: flex; flex-wrap: wrap; gap: 4px 12px;
+  }
+  .agenda-gol-item::before { content: '⚽ '; }
 
   /* ===== GALERIA ===== */
   #galeria { background: var(--preto); }
@@ -872,29 +896,35 @@
    <!-- AMISTOSO -->
    <p class="section-eyebrow">AMISTOSO</p>
      <div class="agenda-grupo">
-      <div class="agenda-jogo">
-        <span class="agenda-badge-proximo">Próximo jogo</span>
+      <div class="agenda-jogo" style="border-left-color:#2ecc71; opacity:0.85;">
+        <span class="agenda-badge-encerrado">✔ Encerrado · Vitória</span>
         <div class="agenda-jogo-meta">
-          <span>📍 Estádio Pereirão </span>
-          <span>📅 14 de jun. | Domingo .</span>
+          <span>📍 Estádio Pereirão</span>
+          <span>📅 14 de jun. | Domingo</span>
           <span>🕘 16:00</span>
         </div>
         <div class="agenda-jogo-times">
-          <div class="agenda-time">
+          <div class="agenda-time destaque">
             <div class="agenda-time-escudo"><img src="LOGOSITE.png" alt="Camargo FC"></div>
             <div class="agenda-time-nome">Camargo FC</div>
           </div>
-          <div class="agenda-vs">VS</div>
-          <div class="agenda-time destaque">
-            <div class="agenda-time-escudo"><img src="Diretoria.jpeg" alt="Camargo FC"></div>
+          <div class="agenda-vs" style="color:#2ecc71;">3 · 1</div>
+          <div class="agenda-time">
+            <div class="agenda-time-escudo"><img src="Diretoria.jpeg" alt="Diretoria RC"></div>
             <div class="agenda-time-nome">Diretoria RC</div>
           </div>
+        </div>
+        <div class="agenda-gols">
+          <span class="agenda-gol-item">Yokida</span>
+          <span class="agenda-gol-item">Clovis Henrique</span>
+          <span class="agenda-gol-item">Fabiano</span>
         </div>
       </div>
     <!-- Jogo 1 -->
    <p class="section-eyebrow">14ª Liga Paraíso de Futebol 2026 · 2ª Divisão</p>
     <div class="agenda-grupo">
       <div class="agenda-jogo">
+        <span class="agenda-badge-proximo">Próximo jogo</span>
         <div class="agenda-jogo-meta">
           <span>📍 Antônio Damião</span>
           <span>📅 18 de jun. | qui.</span>
