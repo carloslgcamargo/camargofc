@@ -690,20 +690,14 @@
     text-transform: uppercase;
   }
   .agenda-placar-final {
-    text-align: center; margin: 0.75rem 0 0.25rem;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px; letter-spacing: 3px; color: var(--preto);
-    line-height: 1;
-  }
-  .agenda-placar-label {
-    text-align: center; font-size: 10px; color: #999;
-    letter-spacing: 2px; text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    font-size: 36px; letter-spacing: 4px; color: #2ecc71;
+    line-height: 1; flex-shrink: 0; padding: 0 0.75rem;
   }
   .agenda-gols {
-    border-top: 1px solid #eee; margin-top: 0.75rem;
-    padding-top: 0.6rem; font-size: 11px; color: #666;
-    display: flex; flex-wrap: wrap; gap: 4px 12px;
+    border-top: 1px solid #e8e8e8; margin-top: 0.75rem;
+    padding-top: 0.6rem; font-size: 12px; color: #666;
+    display: flex; flex-wrap: wrap; gap: 4px 14px;
   }
   .agenda-gol-item::before { content: '⚽ '; }
 
@@ -814,8 +808,8 @@
     <a href="#jogos">Jogos</a>
   </div>
   <a href="#agenda" class="nav-proximo-jogo">
-    <span class="nav-pj-label">Próximo Jogo | AMISTOSO </span>
-    <span class="nav-pj-info"> Camargo FC <em>vs</em> Diretoria FC · 14/jun · 16h</span>
+    <span class="nav-pj-label">Próximo Jogo · Liga 2ª Divisão</span>
+    <span class="nav-pj-info">⚽ Real Tocantins <em>vs</em> Camargo FC · 18/jun · 21h</span>
   </a>
 </nav>
 
@@ -858,11 +852,15 @@
       <div class="section-divider"></div>
     </div>
     <div class="comp-grid">
-      <div class="comp-card">
-        <span class="comp-badge ativo">Domingo</span>
-        <div class="comp-nome">Amistoso Preparatório</div>
-        <p class="comp-desc">Nossa equipe enfrenta o Diretoria RC, time da 3ª Divisão municipal, em amistoso visando a preparação para a estreia na Liga</p>
-        <div class="comp-info"><span>📅 14/jun 2026</span><span>⚽ Paraíso do TO </span></div>
+      <div class="comp-card" style="border-top-color:#2ecc71;">
+        <span class="comp-badge" style="background:#1a3a1a;color:#2ecc71;">✔ Encerrado · Vitória</span>
+        <div class="comp-nome">Amistoso Preparatório · 14/jun/2026</div>
+        <p class="comp-desc">Camargo FC venceu o Diretoria RC por <strong>3 × 1</strong> em jogo preparatório disputado no Estádio Pereirão, em Paraíso do Tocantins. Exibição sólida com gols de Yokida, Clovis Henrique e Fabiano.</p>
+        <div class="comp-info" style="margin-bottom:0.6rem;"><span>📅 14/jun/2026</span><span>⚽ Estádio Pereirão</span></div>
+        <div style="font-size:12px;color:#555;border-top:1px solid #eee;padding-top:0.5rem;">
+          <strong style="color:#111;display:block;margin-bottom:4px;">⚽ Gols Camargo FC</strong>
+          Yokida &nbsp;·&nbsp; Clovis Henrique &nbsp;·&nbsp; Fabiano
+        </div>
       </div>
       <div class="comp-card">
         <span class="comp-badge ativo">Em andamento</span>
@@ -896,7 +894,7 @@
    <!-- AMISTOSO -->
    <p class="section-eyebrow">AMISTOSO</p>
      <div class="agenda-grupo">
-      <div class="agenda-jogo" style="border-left-color:#2ecc71; opacity:0.85;">
+      <div class="agenda-jogo" style="border-left-color:#2ecc71; background:#fafffe;">
         <span class="agenda-badge-encerrado">✔ Encerrado · Vitória</span>
         <div class="agenda-jogo-meta">
           <span>📍 Estádio Pereirão</span>
@@ -908,7 +906,7 @@
             <div class="agenda-time-escudo"><img src="LOGOSITE.png" alt="Camargo FC"></div>
             <div class="agenda-time-nome">Camargo FC</div>
           </div>
-          <div class="agenda-vs" style="color:#2ecc71;">3 · 1</div>
+          <div class="agenda-placar-final">3 · 1</div>
           <div class="agenda-time">
             <div class="agenda-time-escudo"><img src="Diretoria.jpeg" alt="Diretoria RC"></div>
             <div class="agenda-time-nome">Diretoria RC</div>
@@ -924,7 +922,7 @@
    <p class="section-eyebrow">14ª Liga Paraíso de Futebol 2026 · 2ª Divisão</p>
     <div class="agenda-grupo">
       <div class="agenda-jogo">
-        <span class="agenda-badge-proximo">Próximo jogo</span>
+        <span class="agenda-badge-proximo">🔴 Próximo jogo</span>
         <div class="agenda-jogo-meta">
           <span>📍 Antônio Damião</span>
           <span>📅 18 de jun. | qui.</span>
@@ -1405,12 +1403,12 @@
 
     <div id="tab-society" class="jogos-tab-content ativo">
       <div class="jogos-stats-bar">
-        <div class="jstat"><span class="jstat-num">43</span><span class="jstat-label">Jogos</span></div>
-        <div class="jstat jstat-v"><span class="jstat-num">17</span><span class="jstat-label">Vitórias</span></div>
+        <div class="jstat"><span class="jstat-num">44</span><span class="jstat-label">Jogos</span></div>
+        <div class="jstat jstat-v"><span class="jstat-num">18</span><span class="jstat-label">Vitórias</span></div>
         <div class="jstat jstat-e"><span class="jstat-num">10</span><span class="jstat-label">Empates</span></div>
         <div class="jstat jstat-d"><span class="jstat-num">16</span><span class="jstat-label">Derrotas</span></div>
-        <div class="jstat"><span class="jstat-num">84×85</span><span class="jstat-label">Gols F/S</span></div>
-        <div class="jstat"><span class="jstat-num">39.5%</span><span class="jstat-label">Aproveit.</span></div>
+        <div class="jstat"><span class="jstat-num">87×86</span><span class="jstat-label">Gols F/S</span></div>
+        <div class="jstat"><span class="jstat-num">41.7%</span><span class="jstat-label">Aproveit.</span></div>
       </div>
       <div class="tabela-wrap">
         <table class="jogos-tabela">
@@ -1813,6 +1811,15 @@
           <td class="td-res"><span class="res-pill res-e">EMP</span></td>
           <td class="td-tipo">SEMIFINAL - LIGA PARAISO 2ª</td>
           <td class="td-local">ANTONIO DAMIÃO</td>
+        </tr>
+        <tr data-res="V" data-search="diretoria rc amistoso preparatório">
+          <td class="td-num">44</td>
+          <td class="td-data">14/06/2026</td>
+          <td class="td-adv">DIRETORIA RC</td>
+          <td class="td-placar"><span class="placar-badge res-v">3 x 1</span></td>
+          <td class="td-res"><span class="res-pill res-v">VIT</span></td>
+          <td class="td-tipo">AMISTOSO PREPARATÓRIO</td>
+          <td class="td-local">ESTÁDIO PEREIRÃO</td>
         </tr>
           </tbody>
         </table>
