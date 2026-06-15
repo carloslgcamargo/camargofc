@@ -356,8 +356,8 @@
   .jogador-card:hover { box-shadow: 0 6px 24px var(--sombra); transform: translateY(-3px); border-top-color: var(--vermelho); }
 
   .jogador-avatar {
-    width: 64px; height: 64px;
-    border-radius: 50%;
+    width: 90px; height: 120px;
+    border-radius: 4px;
     background: var(--preto);
     color: white;
     font-family: 'Bebas Neue', sans-serif;
@@ -374,7 +374,7 @@
     height: 100%;
     object-fit: cover;
     object-position: top center;
-    border-radius: 50%;
+    border-radius: 4px;
     display: block;
   }
 
@@ -454,7 +454,7 @@
     .filtro-btn { font-size: 11px; padding: 6px 12px; }
     .elenco-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
     .jogador-card { padding: 1rem 0.75rem; }
-    .jogador-avatar { width: 52px; height: 52px; font-size: 16px; }
+    .jogador-avatar { width: 60px; height: 80px; font-size: 16px; }
     .jogador-nome { font-size: 16px; }
     .jogador-posicao-badge { font-size: 9px; padding: 2px 6px; }
 
@@ -1051,34 +1051,34 @@
 
     <div class="elenco-grid" id="elencoGrid">
       <!-- GOLEIROS -->
-      <div class="jogador-card" data-pos="goleiro" data-foto="fotos/Iago.jpeg"><div class="jogador-avatar"><img src="Iago.jpeg" alt="Foto do atleta"></div><div class="jogador-nome">Iago</div><div class="jogador-posicao">Goleiro</div><div class="jogador-numero">20 anos</div><span class="jogador-posicao-badge">GL</span></div>
-      <div class="jogador-card" data-pos="goleiro" data-foto="fotos/lucas-caua.jpg"><div class="jogador-avatar">LC</div><div class="jogador-nome">Lucas Cauã</div><div class="jogador-posicao">Goleiro</div><div class="jogador-numero">17 anos</div><span class="jogador-posicao-badge">GL</span></div>
+      <div class="jogador-card" data-pos="goleiro" data-foto="fotos/iago.jpg"><div class="jogador-avatar"><img src="fotos/Iago.jpg" alt="Foto Iago"></div><div class="jogador-nome">Iago</div><div class="jogador-posicao">Goleiro</div><div class="jogador-numero">20 anos</div><span class="jogador-posicao-badge">GL</span></div>
+      <div class="jogador-card" data-pos="goleiro" data-foto="fotos/lucas-caua.jpg"><div class="jogador-avatar"><img src="fotos/LucasCaua.jpg" alt="Foto Lucas Cauã"></div><div class="jogador-nome">Lucas Cauã</div><div class="jogador-posicao">Goleiro</div><div class="jogador-numero">17 anos</div><span class="jogador-posicao-badge">GL</span></div>
       <!-- ZAGUEIROS -->
-      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar"><img src="GustavoG.jpeg" alt="Foto do atleta"></div><div class="jogador-nome">Gustavo Gomes</div><div class="jogador-posicao">Zagueiro</div><div class="jogador-numero">15 anos</div><span class="jogador-posicao-badge">ZAG</span></div>
-      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar">DA</div><div class="jogador-nome">Daniel</div><div class="jogador-posicao">Zagueiro</div><div class="jogador-numero">24 anos</div><span class="jogador-posicao-badge">ZAG</span></div>
-      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar">DP</div><div class="jogador-nome">David Peixão</div><div class="jogador-posicao">Zagueiro</div><div class="jogador-numero">27 anos</div><span class="jogador-posicao-badge">ZAG</span></div>
-      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar">MD</div><div class="jogador-nome">Michael Davi</div><div class="jogador-posicao">Zagueiro / Lateral</div><div class="jogador-numero">17 anos</div><span class="jogador-posicao-badge">ZAG/LAT</span></div>
+      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar"><img src="fotos/GustavoG.jpg" alt="Foto Gustavo Gomes"></div><div class="jogador-nome">Gustavo Gomes</div><div class="jogador-posicao">Zagueiro</div><div class="jogador-numero">15 anos</div><span class="jogador-posicao-badge">ZAG</span></div>
+      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar"><img src="fotos/Daniel.jpg" alt="Foto Daniel"></div><div class="jogador-nome">Daniel</div><div class="jogador-posicao">Zagueiro</div><div class="jogador-numero">24 anos</div><span class="jogador-posicao-badge">ZAG</span></div>
+      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar"><img src="fotos/Peixao.jpg" alt="Foto David Peixão"></div><div class="jogador-nome">David Peixão</div><div class="jogador-posicao">Zagueiro</div><div class="jogador-numero">27 anos</div><span class="jogador-posicao-badge">ZAG</span></div>
+      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar"><img src="fotos/Michael.jpg" alt="Foto Michael Davi"></div><div class="jogador-nome">Michael Davi</div><div class="jogador-posicao">Zagueiro / Lateral</div><div class="jogador-numero">17 anos</div><span class="jogador-posicao-badge">ZAG/LAT</span></div>
       <!-- LATERAIS -->
-      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar">FA</div><div class="jogador-nome">Fabiano</div><div class="jogador-posicao">Lateral Direito</div><div class="jogador-numero">30 anos</div><span class="jogador-posicao-badge">LD</span></div>
-      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar">AT</div><div class="jogador-nome">Athos</div><div class="jogador-posicao">Lateral Direito</div><div class="jogador-numero">16 anos</div><span class="jogador-posicao-badge">LD</span></div>
-      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar">EN</div><div class="jogador-nome">Eduardo N.</div><div class="jogador-posicao">Lateral Esquerdo</div><div class="jogador-numero">22 anos</div><span class="jogador-posicao-badge">LE</span></div>
-      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar">GU</div><div class="jogador-nome">Guilherme</div><div class="jogador-posicao">Lateral Esquerdo</div><div class="jogador-numero">22 anos</div><span class="jogador-posicao-badge">LE</span></div>
+      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar"><img src="fotos/Fabiano.jpg" alt="Foto Fabiano"></div><div class="jogador-nome">Fabiano</div><div class="jogador-posicao">Lateral Direito</div><div class="jogador-numero">30 anos</div><span class="jogador-posicao-badge">LD</span></div>
+      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar"><img src="fotos/Athos.jpg" alt="Foto Athos"></div><div class="jogador-nome">Athos</div><div class="jogador-posicao">Lateral Direito</div><div class="jogador-numero">16 anos</div><span class="jogador-posicao-badge">LD</span></div>
+      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar"><img src="fotos/Eduardo.jpg" alt="Foto Eduardo N."></div><div class="jogador-nome">Eduardo N.</div><div class="jogador-posicao">Lateral Esquerdo</div><div class="jogador-numero">22 anos</div><span class="jogador-posicao-badge">LE</span></div>
+      <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar"><img src="fotos/Guilherme.jpg" alt="Foto Guilherme"></div><div class="jogador-nome">Guilherme</div><div class="jogador-posicao">Lateral Esquerdo</div><div class="jogador-numero">22 anos</div><span class="jogador-posicao-badge">LE</span></div>
       <!-- VOLANTES -->
-      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar">DL</div><div class="jogador-nome">Davi Lucas</div><div class="jogador-posicao">Volante</div><div class="jogador-numero">16 anos</div><span class="jogador-posicao-badge">VOL</span></div>
-      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar">DN</div><div class="jogador-nome">David Novaes</div><div class="jogador-posicao">Volante</div><div class="jogador-numero">26 anos</div><span class="jogador-posicao-badge">VOL</span></div>
-      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar">JM</div><div class="jogador-nome">João Marcelo</div><div class="jogador-posicao">Volante</div><div class="jogador-numero">21 anos</div><span class="jogador-posicao-badge">VOL</span></div>
-      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar">CH</div><div class="jogador-nome">Chico</div><div class="jogador-posicao">Volante / Meia</div><div class="jogador-numero">26 anos</div><span class="jogador-posicao-badge">VOL/MEI</span></div>
+      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar"><img src="fotos/DaviLucas.jpg" alt="Foto Davi Lucas"></div><div class="jogador-nome">Davi Lucas</div><div class="jogador-posicao">Volante</div><div class="jogador-numero">16 anos</div><span class="jogador-posicao-badge">VOL</span></div>
+      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar"><img src="fotos/DavidNovaes.jpg" alt="Foto David Novaes"></div><div class="jogador-nome">David Novaes</div><div class="jogador-posicao">Volante</div><div class="jogador-numero">26 anos</div><span class="jogador-posicao-badge">VOL</span></div>
+      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar"><img src="fotos/JoaoMarcelo.jpg" alt="Foto João Marcelo"></div><div class="jogador-nome">João Marcelo</div><div class="jogador-posicao">Volante</div><div class="jogador-numero">21 anos</div><span class="jogador-posicao-badge">VOL</span></div>
+      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar"><img src="fotos/Chico.jpg" alt="Foto Chico"></div><div class="jogador-nome">Chico</div><div class="jogador-posicao">Volante / Meia</div><div class="jogador-numero">26 anos</div><span class="jogador-posicao-badge">VOL/MEI</span></div>
       <!-- MEIAS -->
-      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar">CH</div><div class="jogador-nome">Carlos Henrique</div><div class="jogador-posicao">Meia</div><div class="jogador-numero">16 anos</div><span class="jogador-posicao-badge">MEI</span></div>
-      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar">CA</div><div class="jogador-nome">Caio</div><div class="jogador-posicao">Meia</div><div class="jogador-numero">20 anos</div><span class="jogador-posicao-badge">MEI</span></div>
-      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar">AR</div><div class="jogador-nome">Ariostocly</div><div class="jogador-posicao">Meia Atacante</div><div class="jogador-numero">22 anos</div><span class="jogador-posicao-badge">MEI/ATA</span></div>
+      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar"><img src="fotos/CarlosH.jpg" alt="Foto Carlos Henrique"></div><div class="jogador-nome">Carlos Henrique</div><div class="jogador-posicao">Meia</div><div class="jogador-numero">16 anos</div><span class="jogador-posicao-badge">MEI</span></div>
+      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar"><img src="fotos/Caio.jpg" alt="Foto Caio"></div><div class="jogador-nome">Caio</div><div class="jogador-posicao">Meia</div><div class="jogador-numero">20 anos</div><span class="jogador-posicao-badge">MEI</span></div>
+      <div class="jogador-card" data-pos="meio"><div class="jogador-avatar"><img src="fotos/Ari.jpg" alt="Foto Ariostocly"></div><div class="jogador-nome">Ariostocly</div><div class="jogador-posicao">Meia Atacante</div><div class="jogador-numero">22 anos</div><span class="jogador-posicao-badge">MEI/ATA</span></div>
       <!-- PONTAS / ATACANTES -->
-      <div class="jogador-card" data-pos="atacante"><div class="jogador-avatar">JM</div><div class="jogador-nome">João Marçal</div><div class="jogador-posicao">Ponta</div><div class="jogador-numero">16 anos</div><span class="jogador-posicao-badge">PTA</span></div>
-      <div class="jogador-card" data-pos="atacante"><div class="jogador-avatar">CL</div><div class="jogador-nome">Clovis Henrique</div><div class="jogador-posicao">Ponta</div><div class="jogador-numero">19 anos</div><span class="jogador-posicao-badge">PTA</span></div>
-      <div class="jogador-card" data-pos="atacante"><div class="jogador-avatar">GT</div><div class="jogador-nome">Gabriel Tolentino</div><div class="jogador-posicao">Ponta / Atacante</div><div class="jogador-numero">—</div><span class="jogador-posicao-badge">PTA/ATA</span></div>
-      <div class="jogador-card" data-pos="atacante"><div class="jogador-avatar">MH</div><div class="jogador-nome">Marcos Henrique</div><div class="jogador-posicao">Ponta / Atacante</div><div class="jogador-numero">—</div><span class="jogador-posicao-badge">PTA/ATA</span></div>
-      <div class="jogador-card" data-pos="atacante"><div class="jogador-avatar">AB</div><div class="jogador-nome">Arthur Sousa Bileu</div><div class="jogador-posicao">Atacante</div><div class="jogador-numero">16 anos</div><span class="jogador-posicao-badge">ATA</span></div>
-      <div class="jogador-card" data-pos="atacante"><div class="jogador-avatar">AN</div><div class="jogador-nome">André</div><div class="jogador-posicao">Atacante</div><div class="jogador-numero">25 anos</div><span class="jogador-posicao-badge">ATA</span></div>
+      <div class="jogador-card" data-pos="atacante"><div class="jogador-avatar"><img src="fotos/JoaoMarcal.jpg" alt="Foto João Marçal"></div><div class="jogador-nome">João Marçal</div><div class="jogador-posicao">Ponta</div><div class="jogador-numero">16 anos</div><span class="jogador-posicao-badge">PTA</span></div>
+      <div class="jogador-card" data-pos="atacante"><div class="jogador-avatar"><img src="fotos/Clovis.jpg" alt="Foto Clovis Henrique"></div><div class="jogador-nome">Clovis Henrique</div><div class="jogador-posicao">Ponta</div><div class="jogador-numero">19 anos</div><span class="jogador-posicao-badge">PTA</span></div>
+      <div class="jogador-card" data-pos="atacante"><div class="jogador-avatar"><img src="fotos/GabrielT.jpg" alt="Foto Gabriel Tolentino"></div><div class="jogador-nome">Gabriel Tolentino</div><div class="jogador-posicao">Ponta / Atacante</div><div class="jogador-numero">—</div><span class="jogador-posicao-badge">PTA/ATA</span></div>
+      <div class="jogador-card" data-pos="atacante"><div class="jogador-avatar"><img src="fotos/Marcos.jpg" alt="Foto Marcos Henrique"></div><div class="jogador-nome">Marcos Henrique</div><div class="jogador-posicao">Ponta / Atacante</div><div class="jogador-numero">—</div><span class="jogador-posicao-badge">PTA/ATA</span></div>
+      <div class="jogador-card" data-pos="atacante"><div class="jogador-avatar"><img src="fotos/ArthurB.jpg" alt="Foto Arthur Sousa Bileu"></div><div class="jogador-nome">Arthur Sousa Bileu</div><div class="jogador-posicao">Atacante</div><div class="jogador-numero">16 anos</div><span class="jogador-posicao-badge">ATA</span></div>
+      <div class="jogador-card" data-pos="atacante"><div class="jogador-avatar"><img src="fotos/Andre.jpg" alt="Foto André"></div><div class="jogador-nome">André</div><div class="jogador-posicao">Atacante</div><div class="jogador-numero">25 anos</div><span class="jogador-posicao-badge">ATA</span></div>
     </div>
   </div>
 </section>
