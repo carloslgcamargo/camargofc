@@ -391,7 +391,7 @@
     background: var(--preto); color: white;
   }
 
-  /* COMISSÃO TÉCNICA */
+  /* ===== COMISSÃO TÉCNICA ===== */
   .comissao-header {
     display: flex; align-items: center; gap: 1rem;
     margin: 3rem 0 1.5rem;
@@ -401,57 +401,59 @@
     text-transform: uppercase; color: var(--vermelho);
     white-space: nowrap;
   }
-  .comissao-linha {
-    flex: 1; height: 1px; background: rgba(192,25,46,0.25);
-  }
+  .comissao-linha { flex: 1; height: 1px; background: rgba(192,25,46,0.2); }
 
   .comissao-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.25rem;
   }
 
   .comissao-card {
     background: var(--preto);
-    border-left: 4px solid var(--vermelho);
-    display: flex; align-items: center; gap: 1rem;
-    padding: 1.1rem 1.25rem;
-    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 3px solid var(--vermelho);
+    text-align: center;
+    padding: 1.5rem 1rem 1.25rem;
+    transition: box-shadow 0.2s, transform 0.2s;
   }
-  .comissao-card:hover { transform: translateX(4px); box-shadow: 4px 0 20px rgba(192,25,46,0.2); }
+  .comissao-card:hover { box-shadow: 0 6px 24px rgba(192,25,46,0.25); transform: translateY(-3px); }
 
   .comissao-avatar {
-    width: 52px; height: 52px; flex-shrink: 0;
-    background: rgba(192,25,46,0.15);
-    border: 2px solid rgba(192,25,46,0.35);
-    border-radius: 50%;
+    width: 90px; height: 120px;
+    border-radius: 4px;
+    background: #1c1c1c;
     display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
+    margin: 0 auto 0.75rem;
+    border: 3px solid rgba(192,25,46,0.4);
+    overflow: hidden;
+    position: relative;
+  }
+  .comissao-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    border-radius: 4px; display: block;
+  }
+  .comissao-avatar-placeholder {
+    font-size: 38px; line-height: 1; opacity: 0.4;
   }
 
-  .comissao-info { flex: 1; }
+  .comissao-cargo {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--vermelho);
+    margin-bottom: 0.2rem; line-height: 1;
+  }
   .comissao-nome {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 20px; color: var(--branco);
-    letter-spacing: 1px; line-height: 1.1;
+    letter-spacing: 1px; line-height: 1.1; margin-bottom: 0.2rem;
   }
-  .comissao-cargo {
-    font-size: 11px; color: var(--vermelho);
-    font-weight: 600; letter-spacing: 1px;
-    text-transform: uppercase; margin-top: 2px;
-  }
-  .comissao-idade {
-    font-size: 11px; color: rgba(255,255,255,0.35);
-    margin-top: 1px;
-  }
-
+  .comissao-idade { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
   .comissao-badge {
-    font-size: 10px; font-weight: 800; letter-spacing: 1px;
-    padding: 3px 8px;
-    background: rgba(192,25,46,0.2);
-    color: var(--vermelho);
-    border: 1px solid rgba(192,25,46,0.3);
-    align-self: flex-start;
+    display: inline-block; margin-top: 0.5rem;
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    padding: 2px 8px;
+    background: rgba(192,25,46,0.2); color: var(--vermelho);
+    border: 1px solid rgba(192,25,46,0.35);
   }
 
   /* FOOTER */
@@ -478,92 +480,184 @@
   }
   .footer-cor { width: 24px; height: 8px; }
 
-  /* RESPONSIVE */
+  /* ===== RESPONSIVE — MOBILE (≤768px) ===== */
   @media (max-width: 768px) {
-    /* NAV */
-    .nav-links { display: none; }
-    nav { padding: 0 1rem; }
 
-    /* HERO */
-    .hero { padding: 2rem 1rem; }
-    .hero-content { flex-direction: column; text-align: center; gap: 1.5rem; }
-    .hero-escudo { width: 120px; }
-    .hero h1 { font-size: 42px; }
+    /* — NAV — */
+    nav { padding: 0 1rem; height: 56px; }
+    .nav-links { display: none; }
+    .nav-nome { font-size: 17px; }
+    .nav-proximo-jogo { display: none; }
+
+    /* Menu hamburguer */
+    .nav-hamburger {
+      display: flex; flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer; padding: 8px;
+      background: none; border: none;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--branco); border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-hamburger.aberto span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.aberto span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.aberto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Drawer mobile */
+    .nav-drawer {
+      position: fixed; top: 56px; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.97);
+      display: none; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0; z-index: 99;
+      border-top: 2px solid var(--vermelho);
+    }
+    .nav-drawer.aberto { display: flex; }
+    .nav-drawer a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px; letter-spacing: 3px;
+      padding: 14px 2rem; width: 100%; text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-drawer a:hover { color: var(--vermelho); background: rgba(192,25,46,0.07); }
+
+    /* — HERO — */
+    .hero { padding: 2rem 1.25rem; min-height: auto; padding-top: calc(56px + 2rem); }
+    .hero-content { flex-direction: column; text-align: center; gap: 1.25rem; }
+    .hero-escudo { width: 100px; }
+    .hero h1 { font-size: 40px; }
+    .hero-sub { font-size: 11px; letter-spacing: 3px; }
     .hero-stats { justify-content: center; flex-wrap: wrap; gap: 1rem; }
     .hero-stat { min-width: 70px; }
+    .hero-stat-num { font-size: 34px; }
+    .hero-btn { padding: 12px 28px; font-size: 12px; }
 
-    /* SEÇÕES GERAIS */
-    section { padding: 3rem 1rem; }
-    .container { padding: 0 1rem; }
-    .section-title { font-size: 32px; }
+    /* — SEÇÕES GERAIS — */
+    section { padding: 2.5rem 1.25rem; }
+    .container { padding: 0; }
+    .section-title { font-size: 30px; }
+    .section-eyebrow { font-size: 10px; }
 
-    /* HISTÓRIA */
-    .historia-grid { grid-template-columns: 1fr; }
+    /* — HISTÓRIA — */
+    .historia-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .historia-texto p { font-size: 14px; }
 
-    /* TÍTULOS */
+    /* — TÍTULOS — */
     .titulos-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-    .titulo-card { padding: 1rem; }
-    .titulo-icon { font-size: 28px; }
-    .titulo-ano { font-size: 22px; }
+    .titulo-card { padding: 1rem 0.75rem; }
+    .titulo-icon { font-size: 26px; }
+    .titulo-qtd { font-size: 36px; }
+    .titulo-nome { font-size: 16px; }
 
-    /* COMPETIÇÕES */
-    .comp-grid { grid-template-columns: 1fr; }
+    /* — COMPETIÇÕES — */
+    .comp-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .comp-card { padding: 1.25rem; }
+    .comp-nome { font-size: 20px; }
 
-    /* MODALIDADES */
-    .modalidades-grid { grid-template-columns: 1fr; gap: 1rem; }
+    /* — MODALIDADES — */
+    .modal-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .modal-card { padding: 1.5rem 1rem; }
+    .modal-icon { font-size: 36px; }
+    .modal-nome { font-size: 18px; }
 
-    /* ELENCO */
-    .elenco-filtros { flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
-    .filtro-btn { font-size: 11px; padding: 6px 12px; }
-    .elenco-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-    .jogador-card { padding: 1rem 0.75rem; }
-    .jogador-avatar { width: 60px; height: 80px; font-size: 16px; }
-    .jogador-nome { font-size: 16px; }
-    .jogador-posicao-badge { font-size: 9px; padding: 2px 6px; }
-    .comissao-grid { grid-template-columns: 1fr; }
-    .comissao-card { padding: 0.9rem 1rem; gap: 0.75rem; }
-    .comissao-nome { font-size: 17px; }
-    .comissao-avatar { width: 44px; height: 44px; font-size: 18px; }
-    .comissao-header { margin: 2rem 0 1.25rem; }
+    /* — ELENCO — */
+    .elenco-filtros { flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+    .filtro-btn { font-size: 11px; padding: 7px 11px; }
+    .elenco-grid { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+    .jogador-card { padding: 0.85rem 0.5rem; }
+    .jogador-avatar { width: 56px; height: 74px; font-size: 14px; }
+    .jogador-nome { font-size: 13px; }
+    .jogador-posicao { font-size: 10px; }
+    .jogador-numero { font-size: 9px; }
+    .jogador-posicao-badge { font-size: 9px; padding: 2px 5px; margin-top: 3px; }
+    .comissao-grid { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+    .comissao-card { padding: 0.85rem 0.5rem; }
+    .comissao-avatar { width: 56px; height: 74px; }
+    .comissao-avatar-placeholder { font-size: 26px; }
+    .comissao-nome { font-size: 15px; }
+    .comissao-cargo { font-size: 9px; }
+    .comissao-idade { font-size: 9px; }
+    .comissao-header { margin: 2rem 0 1rem; }
 
-    /* AGENDA */
-    .agenda-jogo { padding: 1rem; }
-    .agenda-time-escudo { width: 42px; height: 42px; font-size: 12px; }
+    /* — AGENDA — */
+    .agenda-jogo { padding: 0.9rem 1rem; }
+    .agenda-time-escudo { width: 44px; height: 44px; font-size: 11px; }
     .agenda-time-nome { font-size: 11px; }
     .agenda-vs { font-size: 22px; }
-    .agenda-jogo-meta { gap: 0.5rem; font-size: 11px; }
+    .agenda-placar-final { font-size: 28px; }
+    .agenda-jogo-meta { gap: 0.4rem; font-size: 11px; }
+    .agenda-gols { font-size: 11px; }
 
-    /* JOGOS - TABS */
-    .jogos-tabs { flex-wrap: wrap; }
-    .jogos-tab { font-size: 11px; padding: 8px 10px; }
-    .tabela-jogos { font-size: 11px; }
-    .tabela-jogos th, .tabela-jogos td { padding: 6px 4px; }
+    /* — JOGOS — */
+    .jogos-tabs { flex-wrap: wrap; gap: 0; }
+    .jogos-tab { font-size: 11px; padding: 9px 10px; }
+    .jogos-filtros { flex-direction: column; gap: 0.75rem; }
+    .jogos-search-wrap { min-width: unset; width: 100%; }
+    .jogos-result-filters { justify-content: flex-start; }
+    .res-btn { font-size: 11px; padding: 7px 10px; }
+    .jstat-num { font-size: 22px; }
+    .jstat-label { font-size: 9px; }
     .td-tipo, .td-local { display: none; }
-    .jogos-search input { font-size: 13px; padding: 8px 12px; }
+    .jogos-tabela { font-size: 12px; }
+    .jogos-tabela thead th { padding: 8px 8px; font-size: 9px; }
+    .jogos-tabela td { padding: 8px 8px; }
+    .placar-badge { font-size: 14px; padding: 3px 7px; }
 
-    /* GALERIA */
+    /* — GALERIA — */
     .galeria-tabs { flex-wrap: wrap; }
-    .galeria-tab { font-size: 12px; padding: 8px 12px; }
-    .galeria-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .galeria-tab { font-size: 12px; padding: 9px 12px; }
+    .galeria-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+    .galeria-card-titulo { font-size: 14px; }
+    .galeria-card-desc { font-size: 11px; }
 
-    /* TIMELINE */
-    .timeline { padding-left: 1rem; }
-    .timeline li { font-size: 13px; }
-    .timeline-year { font-size: 18px; }
-    .timeline-sub { font-size: 13px; }
+    /* — LIGHTBOX mobile — */
+    #lb-prev { left: 4px; padding: 10px 12px; font-size: 22px; }
+    #lb-next { right: 4px; padding: 10px 12px; font-size: 22px; }
+    #lb-fechar { top: 12px; right: 12px; font-size: 26px; }
+    #lb-img { max-height: 70vh; }
+    #lb-legenda { font-size: 16px; margin-top: 0.6rem; }
+    #lb-sub { font-size: 11px; }
 
-    /* FOOTER */
-    footer { padding: 2rem 1rem; }
-    .footer-escudo { width: 60px; }
+    /* — TIMELINE — */
+    .timeline { padding-left: 0.75rem; }
+    .timeline li { font-size: 13px; padding-left: 1.1rem; }
+    .timeline-year { font-size: 17px; }
+    .timeline-sub { font-size: 12px; }
+
+    /* — FOOTER — */
+    footer { padding: 2rem 1.25rem; }
+    .footer-escudo { width: 56px; }
+    .footer-logo { font-size: 24px; }
+    footer p { font-size: 12px; }
   }
 
-  @media (max-width: 400px) {
-    .elenco-grid { grid-template-columns: 1fr; }
-    .titulos-grid { grid-template-columns: 1fr; }
-    .galeria-grid { grid-template-columns: 1fr; }
+  /* ===== RESPONSIVE — TELAS PEQUENAS (≤480px) ===== */
+  @media (max-width: 480px) {
     .hero h1 { font-size: 34px; }
-    .agenda-jogo-times { flex-direction: column; align-items: center; gap: 0.5rem; }
-    .agenda-vs { transform: rotate(90deg); }
+    .hero-escudo { width: 80px; }
+    .titulos-grid { grid-template-columns: repeat(2, 1fr); }
+    .modal-grid { grid-template-columns: 1fr; }
+    .elenco-grid { grid-template-columns: repeat(2, 1fr); }
+    .comissao-grid { grid-template-columns: repeat(2, 1fr); }
+    .galeria-grid { grid-template-columns: 1fr; }
+    .agenda-jogo-times { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+    .agenda-time { min-width: 80px; }
+    .jogos-stats-bar { flex-wrap: wrap; }
+    .jstat { min-width: calc(33% - 1px); }
+  }
+
+  /* ===== RESPONSIVE — MUITO PEQUENO (≤360px) ===== */
+  @media (max-width: 360px) {
+    .hero h1 { font-size: 28px; }
+    .hero-stat-num { font-size: 28px; }
+    .elenco-grid { grid-template-columns: repeat(2, 1fr); }
+    .titulos-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 0.75rem; }
+    .nav-nome { font-size: 15px; }
   }
 
   /* ===== JOGOS ===== */
@@ -938,6 +1032,10 @@
 
   .galeria-card img, .jogador-avatar img { cursor: zoom-in; }
 
+  /* hamburguer oculto no desktop */
+  .nav-hamburger { display: none; }
+  .nav-drawer { display: none; }
+
 </style>
 </head>
 <body>
@@ -974,7 +1072,22 @@
     <span class="nav-pj-label">Próximo Jogo · Liga 2ª Divisão</span>
     <span class="nav-pj-info">⚽ Real Tocantins <em>vs</em> Camargo FC · 18/jun · 21h</span>
   </a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- DRAWER MOBILE -->
+<div class="nav-drawer" id="navDrawer">
+  <a href="#competicoes" class="drawer-link">Competições</a>
+  <a href="#agenda" class="drawer-link">Agenda</a>
+  <a href="#elenco" class="drawer-link">Elenco</a>
+  <a href="#titulos" class="drawer-link">Títulos</a>
+  <a href="#modalidades" class="drawer-link">Modalidades</a>
+  <a href="#galeria" class="drawer-link">Galeria</a>
+  <a href="#historia" class="drawer-link">História</a>
+  <a href="#jogos" class="drawer-link">Jogos</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1204,7 +1317,7 @@
     <div class="elenco-grid" id="elencoGrid">
       <!-- GOLEIROS -->
       <div class="jogador-card" data-pos="goleiro" data-foto="fotos/iago.jpg"><div class="jogador-avatar"><img src="Iago.jpeg" alt="Foto Iago"></div><div class="jogador-nome">Iago</div><div class="jogador-posicao">Goleiro</div><div class="jogador-numero">20 anos</div><span class="jogador-posicao-badge">GL</span></div>
-      <div class="jogador-card" data-pos="goleiro" data-foto="fotos/LucasC.jpeg"><div class="jogador-avatar"><img src="fotos/LucasCaua.jpg" alt="Foto Lucas Cauã"></div><div class="jogador-nome">Lucas Cauã</div><div class="jogador-posicao">Goleiro</div><div class="jogador-numero">17 anos</div><span class="jogador-posicao-badge">GL</span></div>
+      <div class="jogador-card" data-pos="goleiro" data-foto="LucasC.jpeg"><div class="jogador-avatar"><img src="fotos/LucasCaua.jpg" alt="Foto Lucas Cauã"></div><div class="jogador-nome">Lucas Cauã</div><div class="jogador-posicao">Goleiro</div><div class="jogador-numero">17 anos</div><span class="jogador-posicao-badge">GL</span></div>
       <!-- ZAGUEIROS -->
       <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar"><img src="GustavoG.jpeg" alt="Foto Gustavo Gomes"></div><div class="jogador-nome">Gustavo Gomes</div><div class="jogador-posicao">Zagueiro</div><div class="jogador-numero">15 anos</div><span class="jogador-posicao-badge">ZAG</span></div>
       <div class="jogador-card" data-pos="defensor"><div class="jogador-avatar"><img src="Daniel.jpeg" alt="Foto Daniel"></div><div class="jogador-nome">Daniel</div><div class="jogador-posicao">Zagueiro</div><div class="jogador-numero">24 anos</div><span class="jogador-posicao-badge">ZAG</span></div>
@@ -1240,33 +1353,37 @@
       <div class="comissao-linha"></div>
     </div>
     <div class="comissao-grid">
+
       <div class="comissao-card">
-        <div class="comissao-avatar">🎯</div>
-        <div class="comissao-info">
-          <div class="comissao-nome">Carlos Leandro</div>
-          <div class="comissao-cargo">Técnico</div>
-          <div class="comissao-idade">33 anos</div>
+        <div class="comissao-avatar">
+          <span class="comissao-avatar-placeholder">👤</span>
         </div>
+        <div class="comissao-cargo">Técnico</div>
+        <div class="comissao-nome">Carlos Leandro</div>
+        <div class="comissao-idade">33 anos</div>
         <span class="comissao-badge">TEC</span>
       </div>
+
       <div class="comissao-card">
-        <div class="comissao-avatar">📋</div>
-        <div class="comissao-info">
-          <div class="comissao-nome">Diogo Souza</div>
-          <div class="comissao-cargo">Auxiliar Técnico</div>
-          <div class="comissao-idade">34 anos</div>
+        <div class="comissao-avatar">
+          <span class="comissao-avatar-placeholder">👤</span>
         </div>
+        <div class="comissao-cargo">Auxiliar Técnico</div>
+        <div class="comissao-nome">Diogo Souza</div>
+        <div class="comissao-idade">34 anos</div>
         <span class="comissao-badge">AUX</span>
       </div>
+
       <div class="comissao-card">
-        <div class="comissao-avatar">📋</div>
-        <div class="comissao-info">
-          <div class="comissao-nome">Karllos Danyel</div>
-          <div class="comissao-cargo">Auxiliar Técnico</div>
-          <div class="comissao-idade">25 anos</div>
+        <div class="comissao-avatar">
+          <span class="comissao-avatar-placeholder">👤</span>
         </div>
+        <div class="comissao-cargo">Auxiliar Técnico</div>
+        <div class="comissao-nome">Karllos Danyel</div>
+        <div class="comissao-idade">25 anos</div>
         <span class="comissao-badge">AUX</span>
       </div>
+
     </div>
 
   </div>
@@ -4059,6 +4176,16 @@
       if (e.key === 'ArrowRight') navegar(1);
     });
 
+    // Swipe touch para mobile
+    var touchStartX = 0;
+    lb.addEventListener('touchstart', function (e) {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) navegar(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
     // Nó de texto para o título (antes do <span id="lb-sub">)
     lbLeg.insertBefore(document.createTextNode(''), lbSub);
 
@@ -4081,6 +4208,37 @@
         const idade   = card.querySelector('.jogador-numero')   ? card.querySelector('.jogador-numero').textContent.trim()   : '';
         registrar(img, nome, [posicao, idade].filter(Boolean).join(' · '));
       });
+    });
+  })();
+
+  /* ===== MENU HAMBURGUER MOBILE ===== */
+  (function () {
+    var btn    = document.getElementById('navHamburger');
+    var drawer = document.getElementById('navDrawer');
+    if (!btn || !drawer) return;
+
+    function toggleMenu() {
+      var aberto = drawer.classList.toggle('aberto');
+      btn.classList.toggle('aberto', aberto);
+      document.body.style.overflow = aberto ? 'hidden' : '';
+    }
+
+    function fecharMenu() {
+      drawer.classList.remove('aberto');
+      btn.classList.remove('aberto');
+      document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', toggleMenu);
+
+    // Fecha ao clicar em qualquer link do drawer
+    drawer.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', fecharMenu);
+    });
+
+    // Fecha ao redimensionar para desktop
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768) fecharMenu();
     });
   })();
 
