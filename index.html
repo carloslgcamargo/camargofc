@@ -798,9 +798,112 @@
   .galeria-add-card span:first-child { font-size: 36px; }
   .galeria-add-card span:last-child { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
 
+  /* ===== LIGHTBOX ===== */
+  #lightbox {
+    display: none;
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.93);
+    align-items: center; justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    animation: lbFadeIn 0.2s ease;
+  }
+  #lightbox.aberto { display: flex; }
+
+  @keyframes lbFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  #lb-img-wrap {
+    position: relative;
+    max-width: min(90vw, 900px);
+    max-height: 80vh;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  #lb-img {
+    max-width: 100%; max-height: 80vh;
+    object-fit: contain;
+    border: 2px solid rgba(192,25,46,0.4);
+    border-radius: 2px;
+    box-shadow: 0 8px 60px rgba(0,0,0,0.7);
+    animation: lbZoomIn 0.22s ease;
+  }
+  @keyframes lbZoomIn {
+    from { transform: scale(0.93); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+  }
+
+  #lb-legenda {
+    margin-top: 1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(16px, 3vw, 24px);
+    letter-spacing: 2px;
+    color: var(--branco);
+    text-align: center;
+    min-height: 28px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  }
+  #lb-legenda span {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.5px;
+    display: block;
+    margin-top: 2px;
+  }
+
+  #lb-fechar {
+    position: fixed; top: 16px; right: 20px;
+    background: none; border: none;
+    color: rgba(255,255,255,0.7); font-size: 32px;
+    cursor: pointer; line-height: 1;
+    transition: color 0.2s, transform 0.2s;
+    z-index: 10000;
+  }
+  #lb-fechar:hover { color: var(--vermelho); transform: rotate(90deg); }
+
+  #lb-prev, #lb-next {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.8);
+    font-size: 26px; padding: 12px 16px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    z-index: 10000;
+  }
+  #lb-prev { left: 12px; }
+  #lb-next { right: 12px; }
+  #lb-prev:hover, #lb-next:hover { background: var(--vermelho); color: white; }
+
+  #lb-contador {
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+    font-size: 12px; letter-spacing: 2px;
+    color: rgba(255,255,255,0.4);
+    z-index: 10000;
+  }
+
+  /* Deixa cursor pointer nas imagens clicáveis */
+  .galeria-card img,
+  .jogador-avatar img { cursor: zoom-in; }
+
 </style>
 </head>
 <body>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de imagem">
+  <button id="lb-fechar" aria-label="Fechar">✕</button>
+  <div id="lb-contador"></div>
+  <button id="lb-prev" aria-label="Anterior">&#8249;</button>
+  <div id="lb-img-wrap">
+    <img id="lb-img" src="" alt="">
+  </div>
+  <button id="lb-next" aria-label="Próximo">&#8250;</button>
+  <div id="lb-legenda"><span id="lb-sub"></span></div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -3822,6 +3925,92 @@
       tr.style.display = (matchBusca && matchRes) ? '' : 'none';
     });
   }
+
+  /* ===== LIGHTBOX ===== */
+  (function() {
+    let imagens = [];
+    let indiceAtual = 0;
+
+    const lb       = document.getElementById('lightbox');
+    const lbImg    = document.getElementById('lb-img');
+    const lbLeg    = document.getElementById('lb-legenda');
+    const lbSub    = document.getElementById('lb-sub');
+    const lbCont   = document.getElementById('lb-contador');
+    const btnFec   = document.getElementById('lb-fechar');
+    const btnPrev  = document.getElementById('lb-prev');
+    const btnNext  = document.getElementById('lb-next');
+
+    function coletarImagens() {
+      imagens = [];
+
+      // Fotos da galeria (galeria-card com img)
+      document.querySelectorAll('.galeria-card').forEach(card => {
+        const img = card.querySelector('.galeria-card-img img');
+        if (!img) return;
+        const titulo = card.querySelector('.galeria-card-titulo')?.textContent.trim() || '';
+        const desc   = card.querySelector('.galeria-card-desc')?.textContent.trim() || '';
+        imagens.push({ src: img.src, alt: img.alt, titulo, sub: desc });
+        img.addEventListener('click', () => abrirLightbox(imagens.length - 1));
+      });
+
+      // Fotos do elenco (jogador-card com img)
+      document.querySelectorAll('.jogador-card').forEach(card => {
+        const img = card.querySelector('.jogador-avatar img');
+        if (!img) return;
+        const nome    = card.querySelector('.jogador-nome')?.textContent.trim() || '';
+        const posicao = card.querySelector('.jogador-posicao')?.textContent.trim() || '';
+        const idade   = card.querySelector('.jogador-numero')?.textContent.trim() || '';
+        const sub     = [posicao, idade].filter(Boolean).join(' · ');
+        imagens.push({ src: img.src, alt: img.alt, titulo: nome, sub });
+        img.addEventListener('click', () => abrirLightbox(imagens.length - 1));
+      });
+    }
+
+    function abrirLightbox(idx) {
+      indiceAtual = idx;
+      mostrarImagem(idx);
+      lb.classList.add('aberto');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function fecharLightbox() {
+      lb.classList.remove('aberto');
+      document.body.style.overflow = '';
+    }
+
+    function mostrarImagem(idx) {
+      const item = imagens[idx];
+      lbImg.src = item.src;
+      lbImg.alt = item.alt || item.titulo;
+      lbLeg.childNodes[0].textContent = item.titulo;
+      lbSub.textContent = item.sub || '';
+      lbCont.textContent = (idx + 1) + ' / ' + imagens.length;
+      // Reinicia animação
+      lbImg.style.animation = 'none';
+      requestAnimationFrame(() => { lbImg.style.animation = ''; });
+    }
+
+    function navegar(dir) {
+      indiceAtual = (indiceAtual + dir + imagens.length) % imagens.length;
+      mostrarImagem(indiceAtual);
+    }
+
+    btnFec.addEventListener('click', fecharLightbox);
+    btnPrev.addEventListener('click', () => navegar(-1));
+    btnNext.addEventListener('click', () => navegar(1));
+
+    lb.addEventListener('click', e => { if (e.target === lb) fecharLightbox(); });
+
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('aberto')) return;
+      if (e.key === 'Escape')      fecharLightbox();
+      if (e.key === 'ArrowLeft')   navegar(-1);
+      if (e.key === 'ArrowRight')  navegar(1);
+    });
+
+    // Inicializa após o DOM estar pronto
+    window.addEventListener('DOMContentLoaded', coletarImagens);
+  })();
 
 </script>
 </body>
