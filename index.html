@@ -94,74 +94,6 @@
   }
 
   /* HERO */
-  .hero {
-    margin-top: 60px;
-    min-height: 100vh;
-    background: var(--preto);
-    display: flex; align-items: center; justify-content: center;
-    text-align: left; padding: 4rem 2rem;
-    position: relative; overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center, rgba(192,25,46,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-content {
-    position: relative; max-width: 1000px; width: 100%;
-    display: flex; align-items: center; gap: 4rem;
-  }
-
-  .hero-escudo {
-    width: 220px; height: auto; flex-shrink: 0;
-    filter: drop-shadow(0 8px 40px rgba(192,25,46,0.5));
-  }
-
-  .hero-text { flex: 1; }
-
-  .hero-stats { justify-content: flex-start; }
-
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(48px, 8vw, 90px);
-    color: var(--branco);
-    letter-spacing: 3px;
-    line-height: 0.95;
-    margin-bottom: 0.5rem;
-  }
-  .hero h1 span { color: var(--vermelho); display: block; }
-
-  .hero-sub {
-    font-size: 13px; font-weight: 600;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 4px; text-transform: uppercase;
-    margin-bottom: 2rem;
-  }
-
-  .hero-stats {
-    display: flex; gap: 2rem; justify-content: center;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-  }
-  .hero-stat { text-align: center; }
-  .hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--vermelho); line-height: 1; }
-  .hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
-
-  .hero-btn {
-    display: inline-block;
-    padding: 14px 36px;
-    background: var(--vermelho);
-    color: var(--branco);
-    text-decoration: none;
-    font-weight: 700; font-size: 13px;
-    letter-spacing: 2px; text-transform: uppercase;
-    transition: background 0.2s, transform 0.1s;
-  }
-  .hero-btn:hover { background: var(--vermelho-escuro); transform: translateY(-2px); }
-
   /* SECTIONS */
   section { padding: 5rem 2rem; }
   .container { max-width: 1100px; margin: 0 auto; }
@@ -580,7 +512,7 @@
     .nav-drawer a:hover { color: var(--vermelho); background: rgba(192,25,46,0.07); }
 
     /* — HERO — */
-    .hero { padding: 2rem 1.25rem; min-height: auto; padding-top: calc(56px + 2rem); }
+    .hero { min-height: auto; }
     .hero-content { flex-direction: column; text-align: center; gap: 1.25rem; }
     .hero-escudo { width: 100px; }
     .hero h1 { font-size: 40px; }
@@ -1090,6 +1022,288 @@
   .nav-hamburger { display: none; }
   .nav-drawer { display: none; }
 
+  /* ===== CARROSSEL HERO ===== */
+  .hero {
+    margin-top: 60px;
+    min-height: 100vh;
+    background: var(--preto);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(192,25,46,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Topo: escudo+info à esq, carrossel à dir */
+  .hero-top {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+    min-height: 80vh;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Painel esquerdo com escudo */
+  .hero-panel-left {
+    width: 360px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 2rem 2rem;
+    background: linear-gradient(135deg, rgba(192,25,46,0.08) 0%, transparent 60%);
+    border-right: 1px solid rgba(192,25,46,0.2);
+    text-align: center;
+  }
+
+  .hero-escudo {
+    width: 180px; height: auto; flex-shrink: 0;
+    filter: drop-shadow(0 8px 40px rgba(192,25,46,0.5));
+  }
+
+  .hero-text { width: 100%; }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4vw, 60px);
+    color: var(--branco);
+    letter-spacing: 3px;
+    line-height: 0.95;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 span { color: var(--vermelho); display: block; }
+
+  .hero-sub {
+    font-size: 11px; font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 4px; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-stats {
+    display: flex; gap: 1rem; justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--vermelho); line-height: 1; }
+  .hero-stat-label { font-size: 10px; color: rgba(255,255,255,0.45); letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+
+  .hero-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--vermelho);
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 700; font-size: 12px;
+    letter-spacing: 2px; text-transform: uppercase;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .hero-btn:hover { background: var(--vermelho-escuro); transform: translateY(-2px); }
+
+  /* Carrossel à direita */
+  .hero-carousel {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    min-height: 400px;
+  }
+
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    opacity: 0.85;
+  }
+
+  .carousel-slide-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a1010 100%);
+    gap: 1rem;
+  }
+  .carousel-slide-placeholder .ph-icon { font-size: 64px; opacity: 0.3; }
+  .carousel-slide-placeholder .ph-text { font-size: 13px; color: #444; letter-spacing: 2px; text-transform: uppercase; }
+
+  .carousel-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.95));
+    padding: 2.5rem 2rem 1.5rem;
+  }
+
+  .carousel-legenda {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(20px, 3vw, 32px);
+    color: var(--branco);
+    letter-spacing: 2px;
+    margin-bottom: 0.3rem;
+    line-height: 1.1;
+  }
+
+  .carousel-sublinha {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 1px;
+  }
+
+  .carousel-controles {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .carousel-btn {
+    width: 36px; height: 36px;
+    background: rgba(192,25,46,0.7);
+    border: none; color: white;
+    font-size: 18px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .carousel-btn:hover { background: var(--vermelho); }
+
+  .carousel-dots {
+    display: flex; gap: 6px; align-items: center;
+  }
+  .carousel-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    border: none; cursor: pointer;
+    padding: 0; transition: background 0.2s, transform 0.2s;
+  }
+  .carousel-dot.ativo { background: var(--vermelho); transform: scale(1.3); }
+
+  .carousel-contador {
+    font-size: 11px; color: rgba(255,255,255,0.4);
+    letter-spacing: 1px; margin-left: auto;
+  }
+
+  /* Gradiente lateral esq no carrossel */
+  .hero-carousel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 80px;
+    background: linear-gradient(to right, var(--preto), transparent);
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  /* ===== JOGOS ACCORDION ===== */
+  .jogos-accordion { margin-top: 0; }
+
+  .jogos-acc-item {
+    border: 1px solid #2a2a2a;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+
+  .jogos-acc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #1c1c1c;
+    cursor: pointer;
+    transition: background 0.2s;
+    border: none;
+    width: 100%;
+    text-align: left;
+    color: rgba(255,255,255,0.75);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .jogos-acc-header:hover { background: #252525; }
+  .jogos-acc-header.aberto { background: #222; border-bottom: 2px solid var(--vermelho); color: var(--branco); }
+
+  .jogos-acc-titulo {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .jogos-acc-emoji { font-size: 18px; }
+
+  .jogos-acc-meta {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 12px;
+  }
+  .jogos-acc-badge {
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    padding: 2px 8px;
+    background: #2a2a2a; color: #666;
+  }
+  .jogos-acc-badge.badge-v { background: #1a3a1a; color: #2ecc71; }
+  .jogos-acc-header.aberto .jogos-acc-badge { background: rgba(192,25,46,0.2); color: var(--vermelho); }
+
+  .jogos-acc-arrow {
+    font-size: 12px; color: #555;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+  .jogos-acc-header.aberto .jogos-acc-arrow { transform: rotate(180deg); color: var(--vermelho); }
+
+  .jogos-acc-body {
+    display: none;
+    background: #111;
+    padding: 1.5rem 1rem 1rem;
+  }
+  .jogos-acc-body.aberto { display: block; }
+
+  @media (max-width: 768px) {
+    /* hero mobile: empilha */
+    .hero-top { flex-direction: column; min-height: auto; }
+    .hero-panel-left {
+      width: 100%;
+      padding: 2rem 1.25rem 1.5rem;
+      border-right: none;
+      border-bottom: 1px solid rgba(192,25,46,0.2);
+    }
+    .hero-escudo { width: 100px; }
+    .hero h1 { font-size: 38px; }
+    .hero-stats { gap: 0.75rem; }
+    .hero-stat-num { font-size: 30px; }
+    .hero-carousel { min-height: 280px; }
+    .hero-carousel::before { display: none; }
+    .carousel-legenda { font-size: 18px; }
+    .jogos-acc-header { padding: 12px 14px; font-size: 13px; }
+    .jogos-acc-meta { gap: 6px; }
+  }
+
 </style>
 </head>
 <body>
@@ -1147,31 +1361,75 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <img class="hero-escudo" src="LOGOSITE.png" alt="Escudo Camargo FC">
-    <div class="hero-text">
-      <p class="hero-sub">Desde 2015 </p>
-      <h1>Camargo <span>Futebol Clube</span></h1>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-num">11</div>
-          <div class="hero-stat-label">Anos de história</div>
+  <div class="hero-top">
+
+    <!-- Painel esquerdo: escudo + info -->
+    <div class="hero-panel-left">
+      <img class="hero-escudo" src="LOGOSITE.png" alt="Escudo Camargo FC">
+      <div class="hero-text">
+        <p class="hero-sub">Desde 2015</p>
+        <h1>Camargo <span>Futebol Clube</span></h1>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">11</div>
+            <div class="hero-stat-label">Anos de história</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">7</div>
+            <div class="hero-stat-label">Títulos</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">23</div>
+            <div class="hero-stat-label">Atletas</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">4</div>
+            <div class="hero-stat-label">Modalidades</div>
+          </div>
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">7</div>
-          <div class="hero-stat-label">Títulos</div>
+        <a href="#historia" class="hero-btn">Conheça o clube</a>
+      </div>
+    </div>
+
+    <!-- Carrossel de fotos à direita -->
+    <div class="hero-carousel" id="heroCarousel">
+      <div class="carousel-track" id="carouselTrack">
+
+        <!-- SLIDE 1 – Amistoso jun/2026 (substitua src pela sua foto) -->
+        <div class="carousel-slide">
+          <img src="Time2022.jpg" alt="Camargo FC – Time Campeão 2022" onerror="this.parentElement.innerHTML='<div class=\'carousel-slide-placeholder\'><span class=\'ph-icon\'>📸</span><span class=\'ph-text\'>Adicione a foto do jogo</span></div>'">
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">23</div>
-          <div class="hero-stat-label">Atletas no elenco</div>
+
+        <!-- SLIDE 2 -->
+        <div class="carousel-slide">
+          <img src="Campeao2022.jpg" alt="Campeão Liga Paraíso 2022" onerror="this.parentElement.innerHTML='<div class=\'carousel-slide-placeholder\'><span class=\'ph-icon\'>🏆</span><span class=\'ph-text\'>Adicione a foto do título</span></div>'">
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">4</div>
-          <div class="hero-stat-label">Modalidades</div>
+
+        <!-- SLIDE 3 -->
+        <div class="carousel-slide">
+          <img src="CampeaoNG.jpeg" alt="Campeão Torneio Nova Geração 2023" onerror="this.parentElement.innerHTML='<div class=\'carousel-slide-placeholder\'><span class=\'ph-icon\'>🏆</span><span class=\'ph-text\'>Adicione a foto do título</span></div>'">
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="carousel-slide">
+          <img src="Chico.jpg" alt="Chico – Ídolo do Camargo FC" onerror="this.parentElement.innerHTML='<div class=\'carousel-slide-placeholder\'><span class=\'ph-icon\'>⚽</span><span class=\'ph-text\'>Adicione uma foto</span></div>'">
+        </div>
+
+      </div>
+
+      <!-- Legenda sobre o carrossel -->
+      <div class="carousel-overlay">
+        <div class="carousel-legenda" id="carouselLegenda">Time Campeão de 2022</div>
+        <div class="carousel-sublinha" id="carouselSublinha">Liga Paraíso de Futebol · 2ª Divisão</div>
+        <div class="carousel-controles">
+          <button class="carousel-btn" id="carouselPrev">&#8249;</button>
+          <div class="carousel-dots" id="carouselDots"></div>
+          <button class="carousel-btn" id="carouselNext">&#8250;</button>
+          <span class="carousel-contador" id="carouselContador">1 / 4</span>
         </div>
       </div>
-      <a href="#historia" class="hero-btn">Conheça o clube</a>
     </div>
+
   </div>
 </section>
 
@@ -1771,31 +2029,33 @@
       <div class="section-divider"></div>
     </div>
 
-    <!-- Tab buttons -->
-    <div class="jogos-tabs">
-      <button class="jogos-tab ativo" onclick="abrirTab(this,'tab-society')">⚽ Campo</button>
-      <button class="jogos-tab" onclick="abrirTab(this,'tab-campo')">🏟️ Society</button>
-      <button class="jogos-tab" onclick="abrirTab(this,'tab-junior')">👦 Society/Camargo JR</button>
-      <button class="jogos-tab" onclick="abrirTab(this,'tab-futsal')">🥅 Futsal</button>
-      <button class="jogos-tab" onclick="abrirTab(this,'tab-beach')">🏖️ Beach Soccer</button>
-      <button class="jogos-tab" onclick="abrirTab(this,'tab-feminino')">👩 Feminino</button>
-    </div>
+    <!-- Accordion de modalidades -->
+    <div class="jogos-accordion" id="jogosAccordion">
 
-    <!-- Filter bar -->
-    <div class="jogos-filtros">
-      <div class="jogos-search-wrap">
-        <input type="text" id="jogosSearch" placeholder="🔍  Buscar adversário, competição..." oninput="filtrarJogos()">
-      </div>
-      <div class="jogos-result-filters">
-        <button class="res-btn ativo" onclick="filtrarResultado(this,'todos')">Todos</button>
-        <button class="res-btn vitoria" onclick="filtrarResultado(this,'V')">Vitória</button>
-        <button class="res-btn empate" onclick="filtrarResultado(this,'E')">Empate</button>
-        <button class="res-btn derrota" onclick="filtrarResultado(this,'D')">Derrota</button>
-      </div>
-    </div>
-
-
-    <div id="tab-society" class="jogos-tab-content ativo">
+      <!-- ⚽ CAMPO -->
+      <div class="jogos-acc-item">
+        <button class="jogos-acc-header" onclick="toggleAcc(this,'acc-campo')">
+          <div class="jogos-acc-titulo">
+            <span class="jogos-acc-emoji">⚽</span> Campo (Futebol 11)
+          </div>
+          <div class="jogos-acc-meta">
+            <span class="jogos-acc-badge">44 jogos</span>
+            <span class="jogos-acc-arrow">▼</span>
+          </div>
+        </button>
+        <div class="jogos-acc-body" id="acc-campo">
+          <!-- Filter bar campo -->
+          <div class="jogos-filtros">
+            <div class="jogos-search-wrap">
+              <input type="text" class="acc-search" data-acc="acc-campo" placeholder="🔍  Buscar adversário, competição..." oninput="filtrarJogosAcc(this)">
+            </div>
+            <div class="jogos-result-filters">
+              <button class="res-btn ativo" onclick="filtrarResAcc(this,'todos','acc-campo')">Todos</button>
+              <button class="res-btn vitoria" onclick="filtrarResAcc(this,'V','acc-campo')">Vitória</button>
+              <button class="res-btn empate" onclick="filtrarResAcc(this,'E','acc-campo')">Empate</button>
+              <button class="res-btn derrota" onclick="filtrarResAcc(this,'D','acc-campo')">Derrota</button>
+            </div>
+          </div>
       <div class="jogos-stats-bar">
         <div class="jstat"><span class="jstat-num">44</span><span class="jstat-label">Jogos</span></div>
         <div class="jstat jstat-v"><span class="jstat-num">18</span><span class="jstat-label">Vitórias</span></div>
@@ -2218,7 +2478,32 @@
           </tbody>
         </table>
       </div>
-    </div>
+        </div><!-- /jogos-acc-body acc-campo -->
+      </div><!-- /jogos-acc-item campo -->
+
+      <!-- 🏟️ SOCIETY -->
+      <div class="jogos-acc-item">
+        <button class="jogos-acc-header" onclick="toggleAcc(this,'acc-society')">
+          <div class="jogos-acc-titulo">
+            <span class="jogos-acc-emoji">🏟️</span> Society (Futebol 7)
+          </div>
+          <div class="jogos-acc-meta">
+            <span class="jogos-acc-badge">113 jogos</span>
+            <span class="jogos-acc-arrow">▼</span>
+          </div>
+        </button>
+        <div class="jogos-acc-body" id="acc-society">
+          <div class="jogos-filtros">
+            <div class="jogos-search-wrap">
+              <input type="text" class="acc-search" data-acc="acc-society" placeholder="🔍  Buscar adversário, competição..." oninput="filtrarJogosAcc(this)">
+            </div>
+            <div class="jogos-result-filters">
+              <button class="res-btn ativo" onclick="filtrarResAcc(this,'todos','acc-society')">Todos</button>
+              <button class="res-btn vitoria" onclick="filtrarResAcc(this,'V','acc-society')">Vitória</button>
+              <button class="res-btn empate" onclick="filtrarResAcc(this,'E','acc-society')">Empate</button>
+              <button class="res-btn derrota" onclick="filtrarResAcc(this,'D','acc-society')">Derrota</button>
+            </div>
+          </div>
     <div id="tab-campo" class="jogos-tab-content ativo">
       <div class="jogos-stats-bar">
         <div class="jstat"><span class="jstat-num">113</span><span class="jstat-label">Jogos</span></div>
@@ -3264,6 +3549,32 @@
         </table>
       </div>
     </div>
+        </div><!-- /jogos-acc-body acc-society -->
+      </div><!-- /jogos-acc-item society -->
+
+      <!-- 👦 CAMARGO JR -->
+      <div class="jogos-acc-item">
+        <button class="jogos-acc-header" onclick="toggleAcc(this,'acc-junior')">
+          <div class="jogos-acc-titulo">
+            <span class="jogos-acc-emoji">👦</span> Society / Camargo JR
+          </div>
+          <div class="jogos-acc-meta">
+            <span class="jogos-acc-badge">23 jogos</span>
+            <span class="jogos-acc-arrow">▼</span>
+          </div>
+        </button>
+        <div class="jogos-acc-body" id="acc-junior">
+          <div class="jogos-filtros">
+            <div class="jogos-search-wrap">
+              <input type="text" class="acc-search" data-acc="acc-junior" placeholder="🔍  Buscar adversário, competição..." oninput="filtrarJogosAcc(this)">
+            </div>
+            <div class="jogos-result-filters">
+              <button class="res-btn ativo" onclick="filtrarResAcc(this,'todos','acc-junior')">Todos</button>
+              <button class="res-btn vitoria" onclick="filtrarResAcc(this,'V','acc-junior')">Vitória</button>
+              <button class="res-btn empate" onclick="filtrarResAcc(this,'E','acc-junior')">Empate</button>
+              <button class="res-btn derrota" onclick="filtrarResAcc(this,'D','acc-junior')">Derrota</button>
+            </div>
+          </div>
     <div id="tab-junior" class="jogos-tab-content ativo">
       <div class="jogos-stats-bar">
         <div class="jstat"><span class="jstat-num">23</span><span class="jstat-label">Jogos</span></div>
@@ -3499,6 +3810,32 @@
         </table>
       </div>
     </div>
+        </div><!-- /jogos-acc-body acc-junior -->
+      </div><!-- /jogos-acc-item junior -->
+
+      <!-- 🥅 FUTSAL -->
+      <div class="jogos-acc-item">
+        <button class="jogos-acc-header" onclick="toggleAcc(this,'acc-futsal')">
+          <div class="jogos-acc-titulo">
+            <span class="jogos-acc-emoji">🥅</span> Futsal
+          </div>
+          <div class="jogos-acc-meta">
+            <span class="jogos-acc-badge">35 jogos</span>
+            <span class="jogos-acc-arrow">▼</span>
+          </div>
+        </button>
+        <div class="jogos-acc-body" id="acc-futsal">
+          <div class="jogos-filtros">
+            <div class="jogos-search-wrap">
+              <input type="text" class="acc-search" data-acc="acc-futsal" placeholder="🔍  Buscar adversário, competição..." oninput="filtrarJogosAcc(this)">
+            </div>
+            <div class="jogos-result-filters">
+              <button class="res-btn ativo" onclick="filtrarResAcc(this,'todos','acc-futsal')">Todos</button>
+              <button class="res-btn vitoria" onclick="filtrarResAcc(this,'V','acc-futsal')">Vitória</button>
+              <button class="res-btn empate" onclick="filtrarResAcc(this,'E','acc-futsal')">Empate</button>
+              <button class="res-btn derrota" onclick="filtrarResAcc(this,'D','acc-futsal')">Derrota</button>
+            </div>
+          </div>
     <div id="tab-futsal" class="jogos-tab-content ativo">
       <div class="jogos-stats-bar">
         <div class="jstat"><span class="jstat-num">35</span><span class="jstat-label">Jogos</span></div>
@@ -3842,6 +4179,32 @@
         </table>
       </div>
     </div>
+        </div><!-- /jogos-acc-body acc-futsal -->
+      </div><!-- /jogos-acc-item futsal -->
+
+      <!-- 🏖️ BEACH SOCCER -->
+      <div class="jogos-acc-item">
+        <button class="jogos-acc-header" onclick="toggleAcc(this,'acc-beach')">
+          <div class="jogos-acc-titulo">
+            <span class="jogos-acc-emoji">🏖️</span> Beach Soccer
+          </div>
+          <div class="jogos-acc-meta">
+            <span class="jogos-acc-badge">13 jogos</span>
+            <span class="jogos-acc-arrow">▼</span>
+          </div>
+        </button>
+        <div class="jogos-acc-body" id="acc-beach">
+          <div class="jogos-filtros">
+            <div class="jogos-search-wrap">
+              <input type="text" class="acc-search" data-acc="acc-beach" placeholder="🔍  Buscar adversário, competição..." oninput="filtrarJogosAcc(this)">
+            </div>
+            <div class="jogos-result-filters">
+              <button class="res-btn ativo" onclick="filtrarResAcc(this,'todos','acc-beach')">Todos</button>
+              <button class="res-btn vitoria" onclick="filtrarResAcc(this,'V','acc-beach')">Vitória</button>
+              <button class="res-btn empate" onclick="filtrarResAcc(this,'E','acc-beach')">Empate</button>
+              <button class="res-btn derrota" onclick="filtrarResAcc(this,'D','acc-beach')">Derrota</button>
+            </div>
+          </div>
     <div id="tab-beach" class="jogos-tab-content ativo">
       <div class="jogos-stats-bar">
         <div class="jstat"><span class="jstat-num">13</span><span class="jstat-label">Jogos</span></div>
@@ -3987,6 +4350,32 @@
         </table>
       </div>
     </div>
+        </div><!-- /jogos-acc-body acc-beach -->
+      </div><!-- /jogos-acc-item beach -->
+
+      <!-- 👩 FEMININO -->
+      <div class="jogos-acc-item">
+        <button class="jogos-acc-header" onclick="toggleAcc(this,'acc-feminino')">
+          <div class="jogos-acc-titulo">
+            <span class="jogos-acc-emoji">👩</span> Feminino
+          </div>
+          <div class="jogos-acc-meta">
+            <span class="jogos-acc-badge">12 jogos</span>
+            <span class="jogos-acc-arrow">▼</span>
+          </div>
+        </button>
+        <div class="jogos-acc-body" id="acc-feminino">
+          <div class="jogos-filtros">
+            <div class="jogos-search-wrap">
+              <input type="text" class="acc-search" data-acc="acc-feminino" placeholder="🔍  Buscar adversário, competição..." oninput="filtrarJogosAcc(this)">
+            </div>
+            <div class="jogos-result-filters">
+              <button class="res-btn ativo" onclick="filtrarResAcc(this,'todos','acc-feminino')">Todos</button>
+              <button class="res-btn vitoria" onclick="filtrarResAcc(this,'V','acc-feminino')">Vitória</button>
+              <button class="res-btn empate" onclick="filtrarResAcc(this,'E','acc-feminino')">Empate</button>
+              <button class="res-btn derrota" onclick="filtrarResAcc(this,'D','acc-feminino')">Derrota</button>
+            </div>
+          </div>
     <div id="tab-feminino" class="jogos-tab-content ativo">
       <div class="jogos-stats-bar">
         <div class="jstat"><span class="jstat-num">12</span><span class="jstat-label">Jogos</span></div>
@@ -4111,11 +4500,12 @@
         </table>
       </div>
     </div>
+        </div><!-- /jogos-acc-body acc-feminino -->
+      </div><!-- /jogos-acc-item feminino -->
+
+    </div><!-- /jogos-accordion -->
   </div>
 </section>
-
-
-<!-- PATROCINADORES -->
 <section id="patrocinadores">
   <div class="container">
     <div class="section-header">
@@ -4180,15 +4570,7 @@
   }
 
   function abrirTab(btn, tabId) {
-    document.querySelectorAll('.jogos-tab').forEach(t => t.classList.remove('ativo'));
-    document.querySelectorAll('.jogos-tab-content').forEach(c => c.classList.remove('ativo'));
-    btn.classList.add('ativo');
-    document.getElementById(tabId).classList.add('ativo');
-    // Reset filters when switching tab
-    document.getElementById('jogosSearch').value = '';
-    document.querySelectorAll('.res-btn').forEach(b => b.classList.remove('ativo'));
-    document.querySelector('.res-btn').classList.add('ativo');
-    filtrarJogos();
+    // kept for backward compat if any remnant exists
   }
 
   let resultadoFiltro = 'todos';
@@ -4201,7 +4583,7 @@
   }
 
   function filtrarJogos() {
-    const busca = document.getElementById('jogosSearch').value.toLowerCase().trim();
+    const busca = document.getElementById('jogosSearch') ? document.getElementById('jogosSearch').value.toLowerCase().trim() : '';
     const tabAtiva = document.querySelector('.jogos-tab-content.ativo');
     if (!tabAtiva) return;
     tabAtiva.querySelectorAll('tbody tr').forEach(tr => {
@@ -4212,6 +4594,120 @@
       tr.style.display = (matchBusca && matchRes) ? '' : 'none';
     });
   }
+
+  /* ===== ACCORDION JOGOS ===== */
+  var accResFiltros = {};
+
+  function toggleAcc(btn, accId) {
+    var body = document.getElementById(accId);
+    var isAberto = body.classList.contains('aberto');
+
+    // Fecha todos
+    document.querySelectorAll('.jogos-acc-header').forEach(function(h) { h.classList.remove('aberto'); });
+    document.querySelectorAll('.jogos-acc-body').forEach(function(b) { b.classList.remove('aberto'); });
+
+    if (!isAberto) {
+      btn.classList.add('aberto');
+      body.classList.add('aberto');
+    }
+  }
+
+  function filtrarJogosAcc(input) {
+    var accId = input.dataset.acc;
+    var body = document.getElementById(accId);
+    var busca = input.value.toLowerCase().trim();
+    var resFiltro = accResFiltros[accId] || 'todos';
+    body.querySelectorAll('tbody tr').forEach(function(tr) {
+      var searchData = tr.dataset.search || '';
+      var res = tr.dataset.res || '';
+      var matchBusca = !busca || searchData.includes(busca);
+      var matchRes = resFiltro === 'todos' || res === resFiltro;
+      tr.style.display = (matchBusca && matchRes) ? '' : 'none';
+    });
+  }
+
+  function filtrarResAcc(btn, res, accId) {
+    var body = document.getElementById(accId);
+    body.querySelectorAll('.res-btn').forEach(function(b) { b.classList.remove('ativo'); });
+    btn.classList.add('ativo');
+    accResFiltros[accId] = res;
+    var searchInput = body.querySelector('.acc-search');
+    var busca = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    body.querySelectorAll('tbody tr').forEach(function(tr) {
+      var searchData = tr.dataset.search || '';
+      var resVal = tr.dataset.res || '';
+      var matchBusca = !busca || searchData.includes(busca);
+      var matchRes = res === 'todos' || resVal === res;
+      tr.style.display = (matchBusca && matchRes) ? '' : 'none';
+    });
+  }
+
+  /* ===== CARROSSEL HERO ===== */
+  (function() {
+    var slides = [
+      { legenda: 'Time Campeão de 2022', sub: 'Liga Paraíso de Futebol · 2ª Divisão' },
+      { legenda: 'Campeão Liga Paraíso 2022', sub: 'Título histórico do Camargo FC' },
+      { legenda: 'Campeão Torneio Nova Geração 2023', sub: 'Mais um título para a galeria' },
+      { legenda: 'Chico – Ídolo do Camargo FC', sub: 'Volante/Meia · 30 jogos · 1 gol · 2 ass.' }
+    ];
+
+    var track = document.getElementById('carouselTrack');
+    var legenda = document.getElementById('carouselLegenda');
+    var sublinha = document.getElementById('carouselSublinha');
+    var contador = document.getElementById('carouselContador');
+    var dotsWrap = document.getElementById('carouselDots');
+    var prevBtn = document.getElementById('carouselPrev');
+    var nextBtn = document.getElementById('carouselNext');
+
+    if (!track) return;
+
+    var atual = 0;
+    var total = slides.length;
+    var autoTimer;
+
+    // Criar dots
+    slides.forEach(function(_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' ativo' : '');
+      dot.addEventListener('click', function() { irPara(i); });
+      dotsWrap.appendChild(dot);
+    });
+
+    function atualizar() {
+      track.style.transform = 'translateX(-' + atual * 100 + '%)';
+      legenda.textContent = slides[atual].legenda;
+      sublinha.textContent = slides[atual].sub;
+      contador.textContent = (atual + 1) + ' / ' + total;
+      dotsWrap.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+        d.classList.toggle('ativo', i === atual);
+      });
+    }
+
+    function irPara(idx) {
+      atual = (idx + total) % total;
+      atualizar();
+      reiniciarAuto();
+    }
+
+    function reiniciarAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(function() { irPara(atual + 1); }, 5000);
+    }
+
+    prevBtn.addEventListener('click', function() { irPara(atual - 1); });
+    nextBtn.addEventListener('click', function() { irPara(atual + 1); });
+
+    // Swipe touch
+    var touchStartX = 0;
+    track.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) irPara(atual + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    atualizar();
+    reiniciarAuto();
+  })();
 
   /* ===== LIGHTBOX ===== */
   (function () {
