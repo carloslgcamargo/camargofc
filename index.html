@@ -1397,7 +1397,7 @@
   </div>
   <a href="#agenda" class="nav-proximo-jogo">
     <span class="nav-pj-label">Próximo Jogo · Liga 2ª Divisão</span>
-    <span class="nav-pj-info">⚽ Real Tocantins <em>vs</em> Camargo FC · 18/jun · 21h</span>
+    <span class="nav-pj-info">⚽ Camargo FC <em>vs</em> MEC Milena · 28/jun · 17h</span>
   </a>
   <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -1575,7 +1575,7 @@
    <p class="section-eyebrow">14ª Liga Paraíso de Futebol 2026 · 2ª Divisão</p>
     <div class="agenda-grupo">
       <div class="agenda-jogo">
-        <span class="agenda-badge-proximo">🔴 Próximo jogo</span>
+        <span class="agenda-badge-encerrado">✅ Encerrado</span>
         <div class="agenda-jogo-meta">
           <span>📍 Antônio Damião</span>
           <span>📅 18 de jun. | qui.</span>
@@ -1583,19 +1583,24 @@
         </div>
         <div class="agenda-jogo-times">
           <div class="agenda-time">
-            <div class="agenda-time-escudo"><img src="Real_tocantins.png" alt="Camargo FC"></div>
+            <div class="agenda-time-escudo"><img src="Real_tocantins.png" alt="Real Tocantins FC"></div>
             <div class="agenda-time-nome">Real Tocantins F.C</div>
           </div>
-          <div class="agenda-vs">VS</div>
+          <div class="agenda-placar-final">4 · 2</div>
           <div class="agenda-time destaque">
             <div class="agenda-time-escudo"><img src="LOGOSITE.png" alt="Camargo FC"></div>
             <div class="agenda-time-nome">Camargo FC</div>
           </div>
         </div>
+        <div class="agenda-gols">
+          <span class="agenda-gol-item">André</span>
+          <span class="agenda-gol-item">Clovis Henrique</span>
+        </div>
       </div>
 
       <!-- Jogo 2 -->
       <div class="agenda-jogo">
+        <span class="agenda-badge-proximo">🔴 Próximo jogo</span>
         <div class="agenda-jogo-meta">
           <span>📍 Antônio Damião</span>
           <span>📅 28 de jun. | dom.</span>
@@ -1684,6 +1689,7 @@
       <p class="section-eyebrow">Temporada 2026</p>
       <h2 class="section-title">Elenco Atual</h2>
       <div class="section-divider"></div>
+      <button class="compartilhar-btn" id="elenco-compartilhar-btn" type="button" style="margin-top:0.75rem;" onclick="(function(btn){var url=window.location.href.split('#')[0]+'#elenco';if(navigator.share){navigator.share({title:'Elenco Camargo FC',text:'Confira o elenco do Camargo FC!',url:url}).catch(function(){});} else{navigator.clipboard.writeText(url).then(function(){btn.classList.add('copiado');btn.textContent='✓ Link copiado!';setTimeout(function(){btn.classList.remove('copiado');btn.innerHTML=btn.getAttribute('data-original');},2000);}).catch(function(){});} })(this)"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='18' cy='5' r='3'/><circle cx='6' cy='12' r='3'/><circle cx='18' cy='19' r='3'/><line x1='8.59' y1='13.51' x2='15.42' y2='17.49'/><line x1='15.41' y1='6.51' x2='8.59' y2='10.49'/></svg> Compartilhar Elenco</button>
     </div>
 
     <div class="elenco-filtros">
@@ -2113,7 +2119,7 @@
             <span class="jogos-acc-emoji">⚽</span> Campo (Futebol 11)
           </div>
           <div class="jogos-acc-meta">
-            <span class="jogos-acc-badge">44 jogos</span>
+            <span class="jogos-acc-badge">45 jogos</span>
             <span class="jogos-acc-arrow">▼</span>
           </div>
         </button>
@@ -2131,12 +2137,12 @@
             </div>
           </div>
       <div class="jogos-stats-bar">
-        <div class="jstat"><span class="jstat-num">44</span><span class="jstat-label">Jogos</span></div>
+        <div class="jstat"><span class="jstat-num">45</span><span class="jstat-label">Jogos</span></div>
         <div class="jstat jstat-v"><span class="jstat-num">18</span><span class="jstat-label">Vitórias</span></div>
         <div class="jstat jstat-e"><span class="jstat-num">10</span><span class="jstat-label">Empates</span></div>
-        <div class="jstat jstat-d"><span class="jstat-num">16</span><span class="jstat-label">Derrotas</span></div>
-        <div class="jstat"><span class="jstat-num">87×86</span><span class="jstat-label">Gols F/S</span></div>
-        <div class="jstat"><span class="jstat-num">41.7%</span><span class="jstat-label">Aproveit.</span></div>
+        <div class="jstat jstat-d"><span class="jstat-num">17</span><span class="jstat-label">Derrotas</span></div>
+        <div class="jstat"><span class="jstat-num">89×90</span><span class="jstat-label">Gols F/S</span></div>
+        <div class="jstat"><span class="jstat-num">40.7%</span><span class="jstat-label">Aproveit.</span></div>
       </div>
       <div class="tabela-wrap">
         <table class="jogos-tabela">
@@ -2548,6 +2554,15 @@
           <td class="td-res"><span class="res-pill res-v">VIT</span></td>
           <td class="td-tipo">AMISTOSO PREPARATÓRIO</td>
           <td class="td-local">ESTÁDIO PEREIRÃO</td>
+        </tr>
+        <tr data-res="D" data-search="real tocantins 14ª liga paraiso - 2ª divisão">
+          <td class="td-num">45</td>
+          <td class="td-data">18/06/2026</td>
+          <td class="td-adv">REAL TOCANTINS</td>
+          <td class="td-placar"><span class="placar-badge res-d">2 x 4</span></td>
+          <td class="td-res"><span class="res-pill res-d">DER</span></td>
+          <td class="td-tipo">14ª LIGA PARAISO - 2ª DIVISÃO</td>
+          <td class="td-local">ANTÔNIO DAMIÃO</td>
         </tr>
           </tbody>
         </table>
@@ -5001,27 +5016,6 @@
         jogo.appendChild(btn);
       });
 
-      // ---- ELENCO: botão de compartilhar em cada jogador ----
-      document.querySelectorAll('#elenco .jogador-card').forEach(function (card, idx) {
-        var nome = card.querySelector('.jogador-nome') ? card.querySelector('.jogador-nome').textContent.trim() : 'Jogador';
-        var posicao = card.querySelector('.jogador-posicao') ? card.querySelector('.jogador-posicao').textContent.trim() : '';
-
-        var anchorId = 'jogador-' + idx;
-        card.id = card.id || anchorId;
-
-        var textoCompartilhar = nome + (posicao ? ' · ' + posicao : '') + ' — Camargo Futebol Clube';
-
-        var btn = document.createElement('button');
-        btn.className = 'jogador-compartilhar';
-        btn.type = 'button';
-        btn.title = 'Compartilhar';
-        btn.innerHTML = ICON_SHARE;
-        btn.addEventListener('click', function (e) {
-          e.stopPropagation();
-          compartilhar(btn, nome, textoCompartilhar, montarUrlComAncora(card.id));
-        });
-        card.appendChild(btn);
-      });
     });
   })();
 
