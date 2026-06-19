@@ -1394,7 +1394,7 @@
     <a href="noticias.html#competicoes">Notícias</a>
     <a href="agenda.html#agenda">Agenda</a>
     <a href="elenco.html#elenco">Elenco</a>
-    <a href="titulos.html#titulos">Títulos</a>
+    <a href="titulos.html#titulos" class="nav-ativo">Títulos</a>
     <a href="modalidades.html#modalidades">Modalidades</a>
     <a href="galeria.html#galeria">Galeria</a>
     <a href="historia.html#historia">História</a>
@@ -1423,82 +1423,42 @@
   <a href="patrocinadores.html#patrocinadores" class="drawer-link">Patrocinadores</a>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-top">
+<div style="height:60px;"></div>
 
-    <!-- Painel esquerdo: escudo + info -->
-    <div class="hero-panel-left">
-      <img class="hero-escudo" src="LOGOSITE.png" alt="Escudo Camargo FC">
-      <div class="hero-text">
-        <p class="hero-sub">Desde 2015</p>
-        <h1>Camargo <span>Futebol Clube</span></h1>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-num">11</div>
-            <div class="hero-stat-label">Anos de história</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">7</div>
-            <div class="hero-stat-label">Títulos</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">23</div>
-            <div class="hero-stat-label">Atletas</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">4</div>
-            <div class="hero-stat-label">Modalidades</div>
-          </div>
-        </div>
-        <a href="#historia" class="hero-btn">Conheça o clube</a>
+<!-- TÍTULOS -->
+<section id="titulos">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Conquistas</p>
+      <h2 class="section-title">Galeria de Títulos</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="titulos-grid">
+      <div class="titulo-card">
+        <span class="titulo-icon">🏆</span>
+        <div class="titulo-nome">Liga Municipal 2ª Divisão </div>
+        <div class="titulo-qtd">1</div>
+        <div class="titulo-anos">2022</div>
+      </div>
+      <div class="titulo-card">
+        <span class="titulo-icon">🏆</span>
+        <div class="titulo-nome">Taça Nova Geração</div>
+        <div class="titulo-qtd">1</div>
+        <div class="titulo-anos">2023</div>
+      </div>
+      <div class="titulo-card">
+        <span class="titulo-icon">🥇</span>
+        <div class="titulo-nome">Torneio de Inverno</div>
+        <div class="titulo-qtd">1</div>
+        <div class="titulo-anos">2020</div>
+      </div>
+      <div class="titulo-card">
+        <span class="titulo-icon">🌟</span>
+        <div class="titulo-nome">Quadrangulares</div>
+        <div class="titulo-qtd">4</div>
+        <div class="titulo-anos">2017-2019-2020-2021</div>
       </div>
     </div>
-
-    <!-- Carrossel de fotos à direita -->
-    <div class="hero-carousel" id="heroCarousel">
-      <div class="carousel-track" id="carouselTrack">
-
-        <!-- SLIDE 1 – Amistoso jun/2026 (substitua src pela sua foto) -->
-        <div class="carousel-slide">
-          <img src="Time2022.jpg" alt="Camargo FC – Time Campeão 2022" onerror="this.parentElement.innerHTML='<div class=\'carousel-slide-placeholder\'><span class=\'ph-icon\'>📸</span><span class=\'ph-text\'>Adicione a foto do jogo</span></div>'">
-        </div>
-
-        <!-- SLIDE 2 -->
-        <div class="carousel-slide">
-          <img src="Campeao2022.jpg" alt="Campeão Liga Paraíso 2022" onerror="this.parentElement.innerHTML='<div class=\'carousel-slide-placeholder\'><span class=\'ph-icon\'>🏆</span><span class=\'ph-text\'>Adicione a foto do título</span></div>'">
-        </div>
-
-        <!-- SLIDE 3 -->
-        <div class="carousel-slide">
-          <img src="CampeaoNG.jpeg" alt="Campeão Torneio Nova Geração 2023" onerror="this.parentElement.innerHTML='<div class=\'carousel-slide-placeholder\'><span class=\'ph-icon\'>🏆</span><span class=\'ph-text\'>Adicione a foto do título</span></div>'">
-        </div>
-
-        <!-- SLIDE 4 – Kiley -->
-        <div class="carousel-slide">
-          <img src="Kiley.jpg" alt="Kiley – Meia / Lateral Camargo FC" onerror="this.parentElement.innerHTML='<div class=\'carousel-slide-placeholder\'><span class=\'ph-icon\'>⚽</span><span class=\'ph-text\'>Adicione uma foto</span></div>'">
-        </div>
-
-        <!-- SLIDE 5 – Chico -->
-        <div class="carousel-slide">
-          <img src="Chico.jpg" alt="Chico – Capitão 2026" onerror="this.parentElement.innerHTML='<div class=\'carousel-slide-placeholder\'><span class=\'ph-icon\'>⚽</span><span class=\'ph-text\'>Adicione uma foto</span></div>'">
-        </div>
-
-      </div>
-
-      <!-- Legenda sobre o carrossel -->
-      <div class="carousel-overlay">
-        <div class="carousel-legenda" id="carouselLegenda">Time Campeão de 2022</div>
-        <div class="carousel-sublinha" id="carouselSublinha">Liga Paraíso de Futebol · 2ª Divisão</div>
-        <div class="carousel-controles">
-          <button class="carousel-btn" id="carouselPrev">&#8249;</button>
-          <div class="carousel-dots" id="carouselDots"></div>
-          <button class="carousel-btn" id="carouselNext">&#8250;</button>
-          <span class="carousel-contador" id="carouselContador">1 / 4</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
