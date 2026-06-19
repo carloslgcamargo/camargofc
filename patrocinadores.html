@@ -1076,8 +1076,10 @@
   .patro-card:hover img { transform: scale(1.08); opacity: 0.85; }
 
   /* hamburguer oculto no desktop */
-  .nav-hamburger { display: none; }
-  .nav-drawer { display: none; }
+  @media (min-width: 769px) {
+    .nav-hamburger { display: none; }
+    .nav-drawer { display: none; }
+  }
 
   /* ===== CARROSSEL HERO ===== */
   .hero {
