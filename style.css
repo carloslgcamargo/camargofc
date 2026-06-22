@@ -468,6 +468,26 @@
     opacity: 0.85;
   }
   footer p { font-size: 13px; margin-bottom: 0.25rem; }
+  /* CONTATOS NO FOOTER */
+  .footer-contatos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem 1.5rem;
+    margin: 1rem 0 0.5rem;
+  }
+  .footer-contato-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-contato-item:hover { color: var(--vermelho); }
+  .footer-contato-item svg { width: 15px; height: 15px; flex-shrink: 0; opacity: 0.8; }
+
   .footer-cores {
     display: flex; gap: 6px; justify-content: center; margin-top: 1rem;
   }
