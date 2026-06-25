@@ -6,6 +6,28 @@
 <title>Notícias · Camargo Futebol Clube</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  .comp-share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 0.75rem;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #c0192e;
+    border: 1.5px solid rgba(192,25,46,0.3);
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    font-family: inherit;
+  }
+  .comp-share-btn:hover { background: #c0192e; color: #fff; border-color: #c0192e; }
+  .comp-share-btn.copiado { background: #2ecc71; color: #fff; border-color: #2ecc71; }
+  .comp-share-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+</style>
 </head>
 <body>
 
@@ -70,8 +92,16 @@
       <div class="section-divider"></div>
     </div>
     <div class="comp-grid">
+       <div class="comp-card" style="border-top-color:#2ecc71;">
+        <span class="comp-badge" style="background:#1a3a1a;color:#2ecc71;">✔  REFORÇOS </span>
+        <div class="comp-nome">MURALHA REFORÇADA</div>
+        <p class="comp-desc">O Camargo FC anunciou o fechamento das contratações do goleiro José Ribamar Jr, de 33 anos, com passagem por Atlas e Finta, e do zagueiro Janio, de 28 anos, que chega como uma aposta para fortalecer o sistema defensivo da equipe na temporada. <br><br> Os atletas já estão regularizados no BID Municipal e ficam à disposição do técnico para a estreia no próximo domingo, pela 2ª rodada da Liga Paraíso de Futebol – 2ª divisão. <br> <br>Com experiência e novas peças chegando ao elenco, o Camargo FC segue trabalhando para buscar seus objetivos na competição. 🟢⚽</p>
+        <div class="comp-info" style="margin-bottom:0.6rem;"><span>📅 25/jun/2026</span><span>⚽ Paraíso do TO </span></div>
+      
+        <button class="comp-share-btn" onclick="compartilharNoticia(this, 'MURALHA REFORÇADA')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Compartilhar</button>
+      </div>
       <div class="comp-card" style="border-top-color:#2ecc71;">
-        <span class="comp-badge" style="background:#1a3a1a;color:#2ecc71;">✔ Encerrado </span>
+        <span class="comp-badge" style="background:#1a3a1a;color:#2ecc71;">❌ Encerrado - DERROTA </span>
         <div class="comp-nome">Estreia Amarga </div>
         <p class="comp-desc">Camargo FC perdeu para o Real Tocantins por <strong>4 × 2</strong> em jogo de abertura da Liga Paraiso de Futebol da 2ª divisão, disputado no Estádio Antonio Damião, em Paraíso do Tocantins. Time sofreu a baixa do goleiro Iago, logo as 10 min de jogo. Apesar de dominar o jogo com mais volume e posse de bola, as falhas defensivas influenciaram no placar. Os gols de André e Clovis Henrique saíram no 2º tempo. </p>
         <div class="comp-info" style="margin-bottom:0.6rem;"><span>📅 18/jun/2026</span><span>⚽ Estádio Antonio Damião</span></div>
@@ -79,6 +109,8 @@
           <strong style="color:#111;display:block;margin-bottom:4px;">⚽ Gols Camargo FC</strong>
           André &nbsp;·&nbsp; Clovis Henrique 
         </div>
+        <button class="comp-share-btn" onclick="compartilharNoticia(this, 'Estreia Amarga')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Compartilhar</button>
+      
       </div>
         <div class="comp-card" style="border-top-color:#2ecc71;">
         <span class="comp-badge" style="background:#1a3a1a;color:#2ecc71;">✔ Encerrado · Vitória</span>
@@ -89,24 +121,32 @@
           <strong style="color:#111;display:block;margin-bottom:4px;">⚽ Gols Camargo FC</strong>
           Yokida &nbsp;·&nbsp; Clovis Henrique &nbsp;·&nbsp; Fabiano
         </div>
+        <button class="comp-share-btn" onclick="compartilharNoticia(this, 'Amistoso Preparatório · 14/jun/2026')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Compartilhar</button>
+      
       </div>
       <div class="comp-card">
         <span class="comp-badge ativo">Em andamento</span>
         <div class="comp-nome">Liga Municipal 2ª Divisão - 2026</div>
         <p class="comp-desc">Principal competição de futebol amador do município. O Camargo FC disputa a segunda divisão, buscando o Bicampeonato.</p>
         <div class="comp-info"><span>📅 Jun–Out 2026</span><span>⚽ Paraíso do TO </span></div>
+        <button class="comp-share-btn" onclick="compartilharNoticia(this, 'Liga Municipal 2ª Divisão - 2026')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Compartilhar</button>
+      
       </div>
       <div class="comp-card">
         <span class="comp-badge ativo">Segundo Semestre</span>
         <div class="comp-nome">Liga Municipal de Futsal 2026</div>
         <p class="comp-desc">Torneio Municipal que reúne equipes de futsal amador da cidade. A equipe de futsal será formada por uma equipe SUB 17</p>
         <div class="comp-info"><span>📅 A confirmar </span><span>🏟️ Paraíso do TO </span></div>
+        <button class="comp-share-btn" onclick="compartilharNoticia(this, 'Liga Municipal de Futsal 2026')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Compartilhar</button>
+      
       </div>
       <div class="comp-card">
         <span class="comp-badge">Futuro</span>
         <div class="comp-nome">Equipe Feminina </div>
         <p class="comp-desc">A equipe feminina do Camargo FC foi encerrada. Há planos para retorno as atividades em 2027 </p>
         <div class="comp-info"><span>📅 A confirmar </span><span>⚽ Paraíso do TO </span></div>
+        <button class="comp-share-btn" onclick="compartilharNoticia(this, 'Equipe Feminina')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Compartilhar</button>
+      
       </div>
     </div>
   </div>
@@ -155,5 +195,24 @@
 
 <script src="main.js"></script>
 
+<script>
+function compartilharNoticia(btn, titulo) {
+  var url = window.location.href.split('#')[0] + '#competicoes';
+  var texto = titulo + ' — Camargo FC';
+  var original = btn.innerHTML;
+  if (navigator.share) {
+    navigator.share({ title: titulo, text: texto, url: url }).catch(function(){});
+  } else {
+    navigator.clipboard.writeText(url).then(function() {
+      btn.classList.add('copiado');
+      btn.textContent = '✓ Link copiado!';
+      setTimeout(function() {
+        btn.classList.remove('copiado');
+        btn.innerHTML = original;
+      }, 2000);
+    }).catch(function(){});
+  }
+}
+</script>
 </body>
 </html>
