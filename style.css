@@ -933,6 +933,47 @@
   }
   .agenda-gol-item::before { content: '⚽ '; }
 
+  .agenda-escalacao {
+    border-top: 1px solid #e8e8e8; margin-top: 0.6rem;
+    padding-top: 0.6rem;
+  }
+  .agenda-escalacao summary {
+    cursor: pointer; font-size: 12px; font-weight: 700;
+    color: var(--vermelho); letter-spacing: 0.5px;
+    text-transform: uppercase; list-style: none;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .agenda-escalacao summary::-webkit-details-marker { display: none; }
+  .agenda-escalacao summary::before {
+    content: '▸'; display: inline-block;
+    transition: transform 0.2s ease;
+  }
+  .agenda-escalacao[open] summary::before { transform: rotate(90deg); }
+  .escalacao-bloco { margin-top: 0.7rem; }
+  .escalacao-bloco-titulo {
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: #999; margin-bottom: 0.4rem;
+  }
+  .escalacao-lista {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 4px 12px; margin-bottom: 0.6rem;
+  }
+  .escalacao-jogador {
+    font-size: 12px; color: #444; display: flex; align-items: baseline; gap: 6px;
+  }
+  .escalacao-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 13px;
+    color: #aaa; min-width: 18px;
+  }
+  .escalacao-jogador.marcou { color: var(--preto); font-weight: 600; }
+  .escalacao-jogador.marcou::after { content: ' ⚽'; }
+  .escalacao-subs-lista { display: flex; flex-direction: column; gap: 3px; }
+  .escalacao-sub-item { font-size: 12px; color: #777; }
+  .escalacao-sub-item .escalacao-num { color: #bbb; }
+  .escalacao-seta { color: #ccc; margin: 0 4px; }
+  .escalacao-sub-item.marcou { color: var(--preto); font-weight: 600; }
+  .escalacao-sub-item.marcou::after { content: ' ⚽'; }
+
   /* ===== GALERIA ===== */
   #galeria { background: var(--preto); }
   #galeria .section-title { color: var(--branco); }
