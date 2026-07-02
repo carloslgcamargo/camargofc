@@ -965,14 +965,15 @@
     font-family: 'Bebas Neue', sans-serif; font-size: 13px;
     color: #aaa; min-width: 18px;
   }
-  .escalacao-jogador.marcou { color: var(--preto); font-weight: 600; }
-  .escalacao-jogador.marcou::after { content: ' ⚽'; }
   .escalacao-subs-lista { display: flex; flex-direction: column; gap: 3px; }
-  .escalacao-sub-item { font-size: 12px; color: #777; }
+  .escalacao-sub-item { font-size: 12px; color: #777; display: flex; align-items: baseline; gap: 3px; flex-wrap: wrap; }
   .escalacao-sub-item .escalacao-num { color: #bbb; }
-  .escalacao-seta { color: #ccc; margin: 0 4px; }
-  .escalacao-sub-item.marcou { color: var(--preto); font-weight: 600; }
-  .escalacao-sub-item.marcou::after { content: ' ⚽'; }
+  .escalacao-seta-saida, .escalacao-seta-entrada {
+    font-weight: 700; margin: 0 3px 0 8px; font-size: 11px;
+  }
+  .escalacao-sub-item .escalacao-seta-saida:first-child { margin-left: 0; }
+  .escalacao-seta-saida { color: #e74c3c; }
+  .escalacao-seta-entrada { color: #2ecc71; }
 
   /* ===== GALERIA ===== */
   #galeria { background: var(--preto); }
