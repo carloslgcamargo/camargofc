@@ -276,37 +276,6 @@
     });
   })();
 
-  /* ===== MENU HAMBURGUER MOBILE ===== */
-  (function () {
-    var btn    = document.getElementById('navHamburger');
-    var drawer = document.getElementById('navDrawer');
-    if (!btn || !drawer) return;
-
-    function toggleMenu() {
-      var aberto = drawer.classList.toggle('aberto');
-      btn.classList.toggle('aberto', aberto);
-      document.body.style.overflow = aberto ? 'hidden' : '';
-    }
-
-    function fecharMenu() {
-      drawer.classList.remove('aberto');
-      btn.classList.remove('aberto');
-      document.body.style.overflow = '';
-    }
-
-    btn.addEventListener('click', toggleMenu);
-
-    // Fecha ao clicar em qualquer link do drawer
-    drawer.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', fecharMenu);
-    });
-
-    // Fecha ao redimensionar para desktop
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 768) fecharMenu();
-    });
-  })();
-
   /* ===== COMPARTILHAR LINK (AGENDA E ELENCO) ===== */
   (function () {
     var ICON_SHARE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>';
